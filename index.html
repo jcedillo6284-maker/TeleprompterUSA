@@ -49,7 +49,7 @@ img,video{max-width:100%;height:auto}
 #patriotCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
 
 /* All content sits above canvas but backgrounds let particles peek through */
-nav,.hero,.ticker,.value-section,.proof-section,.equip-section,.cta-section,.video-section,footer{position:relative;z-index:2}
+nav,.hero,.ticker,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.video-section,footer{position:relative;z-index:2}
 
 
 /* ========== NAV ========== */
@@ -205,6 +205,15 @@ h1 .gold{color:var(--navy)}
 .client-tag{padding:8px 18px;border:1px solid var(--border);font-size:.78rem;font-weight:500;color:var(--text-body);background:rgba(255,255,255,.6);transition:all .35s ease;white-space:nowrap}
 .client-tag:hover{color:var(--red);border-color:var(--red);background:#fff;box-shadow:0 4px 20px rgba(191,10,48,.1);transform:scale(1.05)}
 
+/* ========== STAFF ========== */
+.staff-section{padding:120px 48px;position:relative;background:rgba(247,246,243,.9)}
+.staff-section .section-label{justify-content:center}
+.staff-section .section-label::before{display:none}
+.staff-section .section-heading{text-align:center;margin:0 auto 16px}
+.staff-section p.staff-desc{text-align:center;color:var(--text-body);max-width:600px;margin:0 auto 48px;line-height:1.7}
+.staff-photo-wrap{max-width:800px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.staff-photo-wrap img{width:100%;height:auto;display:block}
+
 /* ========== EQUIPMENT ========== */
 .equip-section{padding:100px 48px;border-top:1px solid var(--border);background:rgba(239,237,232,.9)}
 .equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
@@ -251,7 +260,7 @@ footer .foot-right span{color:var(--red)}
   .value-grid{grid-template-columns:1fr}
   .stats-row{gap:36px;flex-wrap:wrap}
   .cta-contact{flex-direction:column;gap:20px}
-  .value-section,.proof-section,.equip-section,.cta-section{padding:80px 24px}
+  .value-section,.proof-section,.equip-section,.cta-section,.staff-section{padding:80px 24px}
   .portfolio-section,.video-section{padding:80px 24px}
   footer{padding:28px 24px;flex-direction:column;text-align:center}
 }
@@ -299,7 +308,7 @@ footer .foot-right span{color:var(--red)}
   .equip-grid{grid-template-columns:1fr}
   nav{padding:12px 12px}
   .hero{padding:0 12px}
-  .value-section,.proof-section,.equip-section,.cta-section,.portfolio-section,.video-section{padding:60px 12px}
+  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.portfolio-section,.video-section{padding:60px 12px}
 }
 
 /* Disable hover effects on touch devices to prevent sticky :hover states */
@@ -515,6 +524,20 @@ footer .foot-right span{color:var(--red)}
   </div>
 
   <div class="client-cloud reveal" id="clientCloud"></div>
+</section>
+
+<div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
+
+<!-- STAFF -->
+<section class="staff-section" id="staff">
+  <div class="reveal">
+    <div class="section-label">Our Staff</div>
+    <h2 class="section-heading">The Team Behind <span style="color:var(--red)">Every Show</span></h2>
+  </div>
+  <p class="staff-desc reveal">Our experienced professionals ensure flawless delivery at every event — from setup to the final word.</p>
+  <div class="staff-photo-wrap reveal">
+    <img src="staff-waldo.jpg" alt="The TeleprompterUSA team" width="800" height="534" loading="lazy">
+  </div>
 </section>
 
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
