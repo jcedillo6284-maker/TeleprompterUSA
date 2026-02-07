@@ -712,18 +712,15 @@ footer .foot-right span{color:var(--red)}
 <script>
 
 
-// ===== ANIMATED BACKGROUND =====
+// ===== ANIMATED STARFIELD BACKGROUND =====
 (function() {
   const canvas = document.getElementById('patriotCanvas');
   const ctx = canvas.getContext('2d');
   let W, H, t = 0;
 
-  // Mobile detection for performance optimization
   const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-  const BLOB_COUNT = isMobile ? 3 : 5;
-  const RING_COUNT = isMobile ? 6 : 12;
-  const DIAMOND_COUNT = isMobile ? 10 : 20;
-  const WAVE_COUNT = isMobile ? 2 : 3;
+  const STAR_COUNT = isMobile ? 40 : 90;
+  const SHOOTER_INTERVAL = isMobile ? 400 : 220;
 
   function resize() {
     W = canvas.width = window.innerWidth;
@@ -732,128 +729,135 @@ footer .foot-right span{color:var(--red)}
   window.addEventListener('resize', resize);
   resize();
 
-  // ---- Soft gradient blobs that drift ----
-  const blobs = [];
-  for (let i = 0; i < BLOB_COUNT; i++) {
-    blobs.push({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      radius: Math.random() * 250 + 150,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.2,
-      color: i % 3 === 0 ? [191,10,48] : i % 3 === 1 ? [0,40,104] : [200,200,200],
-      phase: Math.random() * Math.PI * 2
-    });
-  }
+  // Brand colors for stars
+  const starColors = [
+    [191,10,48],   // red
+    [27,42,74],    // navy
+    [139,112,50],  // gold
+    [100,100,120], // silver
+    [191,10,48],   // red (extra)
+    [27,42,74]     // navy (extra)
+  ];
 
-  // ---- Floating thin rings ----
-  const rings = [];
-  for (let i = 0; i < RING_COUNT; i++) {
-    rings.push({
+  // ---- Twinkling stars ----
+  const stars = [];
+  for (let i = 0; i < STAR_COUNT; i++) {
+    stars.push({
       x: Math.random() * W,
       y: Math.random() * H,
-      radius: Math.random() * 40 + 15,
-      vy: -(Math.random() * 0.15 + 0.05),
-      vx: (Math.random() - 0.5) * 0.08,
-      alpha: Math.random() * 0.12 + 0.03,
-      color: Math.random() > 0.5 ? '191,10,48' : '0,40,104',
-      lineWidth: Math.random() * 1 + 0.3,
-      pulse: Math.random() * Math.PI * 2
-    });
-  }
-
-  // ---- Small floating diamonds ----
-  const diamonds = [];
-  for (let i = 0; i < DIAMOND_COUNT; i++) {
-    diamonds.push({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      size: Math.random() * 5 + 2,
-      vy: -(Math.random() * 0.12 + 0.03),
-      vx: (Math.random() - 0.5) * 0.06,
+      size: Math.random() * 2.5 + 0.8,
+      points: Math.random() > 0.5 ? 4 : 5,
+      color: starColors[Math.floor(Math.random() * starColors.length)],
+      twinkleSpeed: Math.random() * 0.03 + 0.008,
+      twinklePhase: Math.random() * Math.PI * 2,
+      maxAlpha: Math.random() * 0.25 + 0.08,
+      vy: -(Math.random() * 0.08 + 0.01),
+      vx: (Math.random() - 0.5) * 0.04,
       rotation: Math.random() * Math.PI * 2,
-      rotSpeed: (Math.random() - 0.5) * 0.01,
-      alpha: Math.random() * 0.15 + 0.04,
-      color: Math.random() < 0.4 ? '191,10,48' : Math.random() > 0.5 ? '0,40,104' : '80,80,80'
+      rotSpeed: (Math.random() - 0.5) * 0.003
     });
   }
 
-  // ---- Gentle horizontal wave lines ----
-  function drawWaves() {
-    for (let w = 0; w < WAVE_COUNT; w++) {
-      const yBase = H * (0.25 + w * 0.25);
-      const color = w === 0 ? '191,10,48' : w === 1 ? '0,40,104' : '150,150,150';
-      ctx.beginPath();
-      ctx.strokeStyle = 'rgba(' + color + ',0.025)';
-      ctx.lineWidth = 1;
-      for (let x = 0; x <= W; x += 4) {
-        const y = yBase + Math.sin(x * 0.003 + t * 0.008 + w * 2) * 30 + Math.sin(x * 0.007 + t * 0.005) * 15;
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.stroke();
+  // ---- Shooting stars ----
+  const shooters = [];
+  function spawnShooter() {
+    const fromLeft = Math.random() > 0.5;
+    const c = starColors[Math.floor(Math.random() * starColors.length)];
+    shooters.push({
+      x: fromLeft ? Math.random() * W * 0.3 : W * 0.7 + Math.random() * W * 0.3,
+      y: Math.random() * H * 0.5,
+      vx: fromLeft ? (Math.random() * 3 + 2) : -(Math.random() * 3 + 2),
+      vy: Math.random() * 1.5 + 0.8,
+      length: Math.random() * 60 + 30,
+      alpha: 0.35,
+      color: c,
+      life: 0,
+      maxLife: Math.random() * 60 + 40
+    });
+  }
+
+  // Draw a star shape
+  function drawStar(cx, cy, points, outerR, innerR, rotation, color, alpha) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rotation);
+    ctx.beginPath();
+    for (let i = 0; i < points * 2; i++) {
+      const r = i % 2 === 0 ? outerR : innerR;
+      const angle = (Math.PI * i) / points - Math.PI / 2;
+      if (i === 0) ctx.moveTo(Math.cos(angle) * r, Math.sin(angle) * r);
+      else ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
     }
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + alpha + ')';
+    ctx.fill();
+
+    // Glow effect
+    ctx.shadowBlur = outerR * 3;
+    ctx.shadowColor = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + (alpha * 0.5) + ')';
+    ctx.fill();
+    ctx.restore();
   }
 
   function animate() {
     t++;
     ctx.clearRect(0, 0, W, H);
+    ctx.shadowBlur = 0;
 
-    // Gradient blobs
-    for (const b of blobs) {
-      b.x += b.vx + Math.sin(t * 0.003 + b.phase) * 0.2;
-      b.y += b.vy + Math.cos(t * 0.004 + b.phase) * 0.15;
-      if (b.x < -b.radius) b.x = W + b.radius;
-      if (b.x > W + b.radius) b.x = -b.radius;
-      if (b.y < -b.radius) b.y = H + b.radius;
-      if (b.y > H + b.radius) b.y = -b.radius;
+    // Twinkling stars
+    for (const s of stars) {
+      s.twinklePhase += s.twinkleSpeed;
+      s.y += s.vy;
+      s.x += s.vx;
+      s.rotation += s.rotSpeed;
 
-      const pulseR = b.radius + Math.sin(t * 0.005 + b.phase) * 30;
-      const alpha = 0.018 + Math.sin(t * 0.003 + b.phase) * 0.008;
-      const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, pulseR);
-      grad.addColorStop(0, 'rgba(' + b.color.join(',') + ',' + alpha + ')');
-      grad.addColorStop(1, 'rgba(' + b.color.join(',') + ',0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(b.x - pulseR, b.y - pulseR, pulseR * 2, pulseR * 2);
+      // Wrap around
+      if (s.y < -10) { s.y = H + 10; s.x = Math.random() * W; }
+      if (s.x < -10) s.x = W + 10;
+      if (s.x > W + 10) s.x = -10;
+
+      const twinkle = 0.3 + 0.7 * ((Math.sin(s.twinklePhase) + 1) / 2);
+      const alpha = s.maxAlpha * twinkle;
+      const outerR = s.size * (0.85 + 0.15 * twinkle);
+      const innerR = outerR * 0.4;
+
+      drawStar(s.x, s.y, s.points, outerR, innerR, s.rotation, s.color, alpha);
     }
 
-    // Wave lines
-    drawWaves();
+    // Spawn shooting stars
+    if (t % SHOOTER_INTERVAL === 0) spawnShooter();
 
-    // Rings
-    for (const r of rings) {
-      r.y += r.vy;
-      r.x += r.vx;
-      r.pulse += 0.015;
-      if (r.y < -60) { r.y = H + 60; r.x = Math.random() * W; }
+    // Draw shooting stars
+    for (let i = shooters.length - 1; i >= 0; i--) {
+      const sh = shooters[i];
+      sh.x += sh.vx;
+      sh.y += sh.vy;
+      sh.life++;
 
-      const a = r.alpha * (0.5 + 0.5 * Math.sin(r.pulse));
+      const fadeIn = Math.min(sh.life / 10, 1);
+      const fadeOut = Math.max(1 - (sh.life / sh.maxLife), 0);
+      const alpha = sh.alpha * fadeIn * fadeOut;
+
+      if (alpha <= 0 || sh.life > sh.maxLife) {
+        shooters.splice(i, 1);
+        continue;
+      }
+
+      // Tail
+      const tailX = sh.x - sh.vx * (sh.length / Math.sqrt(sh.vx * sh.vx + sh.vy * sh.vy));
+      const tailY = sh.y - sh.vy * (sh.length / Math.sqrt(sh.vx * sh.vx + sh.vy * sh.vy));
+      const grad = ctx.createLinearGradient(sh.x, sh.y, tailX, tailY);
+      grad.addColorStop(0, 'rgba(' + sh.color[0] + ',' + sh.color[1] + ',' + sh.color[2] + ',' + alpha + ')');
+      grad.addColorStop(1, 'rgba(' + sh.color[0] + ',' + sh.color[1] + ',' + sh.color[2] + ',0)');
       ctx.beginPath();
-      ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(' + r.color + ',' + a + ')';
-      ctx.lineWidth = r.lineWidth;
+      ctx.moveTo(sh.x, sh.y);
+      ctx.lineTo(tailX, tailY);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.5;
       ctx.stroke();
-    }
 
-    // Diamonds
-    for (const d of diamonds) {
-      d.y += d.vy;
-      d.x += d.vx;
-      d.rotation += d.rotSpeed;
-      if (d.y < -20) { d.y = H + 20; d.x = Math.random() * W; }
-
-      ctx.save();
-      ctx.translate(d.x, d.y);
-      ctx.rotate(d.rotation);
-      ctx.beginPath();
-      ctx.moveTo(0, -d.size);
-      ctx.lineTo(d.size * 0.6, 0);
-      ctx.lineTo(0, d.size);
-      ctx.lineTo(-d.size * 0.6, 0);
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(' + d.color + ',' + d.alpha + ')';
-      ctx.fill();
-      ctx.restore();
+      // Head glow
+      drawStar(sh.x, sh.y, 4, 3, 1.2, t * 0.05, sh.color, alpha * 1.5);
     }
 
     requestAnimationFrame(animate);
