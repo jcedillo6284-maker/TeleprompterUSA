@@ -49,7 +49,7 @@ img,video{max-width:100%;height:auto}
 #patriotCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
 
 /* All content sits above canvas but backgrounds let particles peek through */
-nav,.hero,.ticker,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.video-section,footer{position:relative;z-index:2}
+nav,.hero,.ticker,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.video-section,.payment-section,.contact-banner,footer{position:relative;z-index:2}
 
 
 /* ========== NAV ========== */
@@ -205,6 +205,28 @@ h1 .gold{color:var(--navy)}
 .client-tag{padding:8px 18px;border:1px solid var(--border);font-size:.78rem;font-weight:500;color:var(--text-body);background:rgba(255,255,255,.6);transition:all .35s ease;white-space:nowrap}
 .client-tag:hover{color:var(--red);border-color:var(--red);background:#fff;box-shadow:0 4px 20px rgba(191,10,48,.1);transform:scale(1.05)}
 
+/* ========== CONTACT BANNER ========== */
+.contact-banner{background:var(--navy);color:#fff;text-align:center;padding:18px 24px;font-size:.85rem;letter-spacing:.5px}
+.contact-banner a{color:#fff;text-decoration:none;font-weight:700}
+.contact-banner a:hover{text-decoration:underline}
+.contact-banner .cb-sep{margin:0 12px;opacity:.4}
+.contact-banner .rush-badge{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:3px 12px;border-radius:4px;margin-left:16px;font-size:.8rem;letter-spacing:1px;animation:pulse 2s infinite}
+
+/* ========== PAYMENT SECTION ========== */
+.payment-section{padding:80px 48px;text-align:center;background:rgba(239,237,232,.9)}
+.payment-section .section-label{justify-content:center}
+.payment-section .section-label::before{display:none}
+.payment-section .section-heading{text-align:center;margin:0 auto 12px}
+.payment-desc{color:var(--text-body);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.payment-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:700px;margin:0 auto}
+.payment-item{display:flex;align-items:center;gap:8px;padding:12px 20px;border:1px solid var(--border);background:rgba(255,255,255,.9);border-radius:8px;font-size:.85rem;font-weight:600;color:var(--text-dark);transition:all .3s}
+.payment-item:hover{border-color:rgba(191,10,48,.2);box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-2px)}
+.payment-item .pay-icon{font-size:1.3rem}
+
+/* ========== TRADEMARK OVERLAY ========== */
+.tm-wrap{position:relative;display:inline-block;width:100%}
+.tm-wrap::after{content:'TELEPROMPTERUSA2026';position:absolute;bottom:12px;right:16px;color:rgba(255,255,255,.7);font-size:.7rem;font-weight:700;letter-spacing:2px;text-shadow:0 1px 4px rgba(0,0,0,.6);pointer-events:none;z-index:5}
+
 /* ========== STAFF ========== */
 .staff-section{padding:120px 48px;position:relative;background:rgba(247,246,243,.9)}
 .staff-section .section-label{justify-content:center}
@@ -260,8 +282,10 @@ footer .foot-right span{color:var(--red)}
   .value-grid{grid-template-columns:1fr}
   .stats-row{gap:36px;flex-wrap:wrap}
   .cta-contact{flex-direction:column;gap:20px}
-  .value-section,.proof-section,.equip-section,.cta-section,.staff-section{padding:80px 24px}
+  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section{padding:80px 24px}
   .portfolio-section,.video-section{padding:80px 24px}
+  .contact-banner .cb-sep{display:none}
+  .contact-banner{font-size:.75rem;line-height:1.8}
   footer{padding:28px 24px;flex-direction:column;text-align:center}
 }
 
@@ -308,7 +332,9 @@ footer .foot-right span{color:var(--red)}
   .equip-grid{grid-template-columns:1fr}
   nav{padding:12px 12px}
   .hero{padding:0 12px}
-  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.portfolio-section,.video-section{padding:60px 12px}
+  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.portfolio-section,.video-section{padding:60px 12px}
+  .payment-section{padding:60px 12px}
+  .contact-banner .rush-badge{display:block;margin:6px auto 0;width:fit-content}
 }
 
 /* Disable hover effects on touch devices to prevent sticky :hover states */
@@ -456,6 +482,10 @@ footer .foot-right span{color:var(--red)}
   <div class="portfolio-grid" id="portfolioGrid"></div>
 </section>
 
+<div class="contact-banner">
+  <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a><span class="cb-sep">|</span>Available 24/7<span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
+</div>
+
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
 
 <!-- VIDEO SHOWCASE -->
@@ -465,8 +495,10 @@ footer .foot-right span{color:var(--red)}
     <h2 class="section-heading">Behind the Scenes on Set with <span style="color:var(--red)">Teleprompter USA</span></h2>
     <p>From presidential podiums to broadcast studios — see how our operators and equipment deliver flawless performances on the biggest stages.</p>
   </div>
-  <div class="video-wrapper reveal">
-    <iframe src="https://www.youtube.com/embed/K6cw0p2i3C8?rel=0&modestbranding=1" title="Teleprompter USA — On Set Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+  <div class="tm-wrap">
+    <div class="video-wrapper reveal">
+      <iframe src="https://www.youtube.com/embed/K6cw0p2i3C8?rel=0&modestbranding=1" title="Teleprompter USA — On Set Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+    </div>
   </div>
   <p class="video-caption reveal">Full-service teleprompter solutions — anywhere in the country</p>
 </section>
@@ -497,6 +529,10 @@ footer .foot-right span{color:var(--red)}
     </div>
   </div>
 </section>
+
+<div class="contact-banner">
+  Call now: <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span>Email: <a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a>
+</div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
 
@@ -535,8 +571,10 @@ footer .foot-right span{color:var(--red)}
     <h2 class="section-heading">Delivering Confidence on <span style="color:var(--red)">Every Stage</span></h2>
     <p>See how Teleprompter USA keeps speakers on track and on camera — from corporate events to live broadcasts.</p>
   </div>
-  <div class="video-wrapper reveal">
-    <iframe src="https://www.youtube.com/embed/iNNgjipo1oI?rel=0&modestbranding=1" title="Teleprompter USA — Delivering Confidence on Every Stage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+  <div class="tm-wrap">
+    <div class="video-wrapper reveal">
+      <iframe src="https://www.youtube.com/embed/iNNgjipo1oI?rel=0&modestbranding=1" title="Teleprompter USA — Delivering Confidence on Every Stage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+    </div>
   </div>
   <p class="video-caption reveal">Professional teleprompter services — nationwide, 24/7</p>
 </section>
@@ -550,7 +588,7 @@ footer .foot-right span{color:var(--red)}
     <h2 class="section-heading">The Team Behind <span style="color:var(--red)">Every Show</span></h2>
   </div>
   <p class="staff-desc reveal">Our experienced professionals ensure flawless delivery at every event — from setup to the final word.</p>
-  <div class="staff-photo-wrap reveal">
+  <div class="staff-photo-wrap tm-wrap reveal">
     <img src="staff-waldo.jpg" alt="The TeleprompterUSA team" width="800" height="534" loading="lazy">
   </div>
 </section>
@@ -597,7 +635,32 @@ footer .foot-right span{color:var(--red)}
   </div>
 </section>
 
+<div class="contact-banner">
+  <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a><span class="cb-sep">|</span>24/7 Nationwide Service<span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
+</div>
+
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
+
+<!-- PAYMENT OPTIONS -->
+<section class="payment-section" id="payment">
+  <div class="reveal">
+    <div class="section-label">Payment Options</div>
+    <h2 class="section-heading">Flexible <span style="color:var(--red)">Payment Methods</span></h2>
+  </div>
+  <p class="payment-desc reveal">We accept all major credit cards, digital wallets, and traditional payment methods for your convenience.</p>
+  <div class="payment-grid reveal">
+    <div class="payment-item"><span class="pay-icon">&#128179;</span> Visa</div>
+    <div class="payment-item"><span class="pay-icon">&#128179;</span> Mastercard</div>
+    <div class="payment-item"><span class="pay-icon">&#128179;</span> American Express</div>
+    <div class="payment-item"><span class="pay-icon">&#128179;</span> Discover</div>
+    <div class="payment-item"><span class="pay-icon">&#128176;</span> PayPal</div>
+    <div class="payment-item"><span class="pay-icon">&#128176;</span> Venmo</div>
+    <div class="payment-item"><span class="pay-icon">&#128176;</span> Zelle</div>
+    <div class="payment-item"><span class="pay-icon">&#128196;</span> Check</div>
+  </div>
+</section>
+
+<div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
 
 <!-- CTA / CONTACT -->
 <section class="cta-section" id="contact">
