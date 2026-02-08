@@ -53,7 +53,7 @@ img,video{max-width:100%;height:auto}
 #patriotCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
 
 /* All content sits above canvas but backgrounds let particles peek through */
-nav,.hero,.ticker,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.video-section,.payment-section,.contact-banner,footer{position:relative;z-index:2}
+nav,.hero,.ticker,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.video-section,.payment-section,.contact-banner,.brand-banner,footer{position:relative;z-index:2}
 
 
 /* ========== NAV ========== */
@@ -223,6 +223,13 @@ h1 .gold{color:var(--navy)}
 .contact-banner a:hover{text-decoration:underline}
 .contact-banner .cb-sep{margin:0 12px;opacity:.4}
 .contact-banner .rush-badge{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:3px 12px;border-radius:4px;margin-left:16px;font-size:.8rem;letter-spacing:1px;animation:pulse 2s infinite}
+.brand-banner{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 50%,var(--navy-deep) 100%);color:#fff;text-align:center;padding:14px 24px;position:relative;overflow:hidden}
+.brand-banner::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.02) 60px,rgba(255,255,255,.02) 61px);pointer-events:none}
+.brand-banner-text{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:6px;text-transform:uppercase;position:relative;z-index:2}
+.brand-banner-text .bb-red{color:var(--red)}
+.brand-banner-text .bb-gold{color:#C9A84C}
+.brand-banner-sub{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:2px;position:relative;z-index:2}
+@media(max-width:600px){.brand-banner-text{font-size:1.2rem;letter-spacing:4px}.brand-banner{padding:10px 16px}}
 
 /* ========== PAYMENT SECTION ========== */
 .payment-section{padding:80px 48px;text-align:center;background:rgba(239,237,232,.9)}
@@ -439,6 +446,13 @@ footer .foot-right span{color:var(--red)}
   </div>
 </div>
 
+<!-- TOP BRAND BANNER -->
+<div class="brand-banner" id="topBrandBanner">
+  <div class="brand-banner-text"><span class="bb-red">Teleprompter</span> <span class="bb-gold">USA</span></div>
+  <div class="brand-banner-sub">Full-Service Teleprompter Rentals &bull; Veteran-Owned &bull; 24/7 Nationwide</div>
+</div>
+<div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
+
 <!-- NAV -->
 <nav id="nav">
   <a href="javascript:void(0)" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -619,7 +633,7 @@ footer .foot-right span{color:var(--red)}
   </div>
   <div class="equip-grid">
     <div class="equip-item reveal">
-      <img class="eq-img" src="https://images.unsplash.com/photo-1577962917302-cd874462e1e5?w=400&h=280&fit=crop&auto=format&q=80" alt="Presidential teleprompter setup" loading="lazy" width="400" height="280">
+      <img class="eq-img" src="images/presidential-teleprompter.jpg" alt="Presidential teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450">
       <span class="eq-icon">&#127963;&#65039;</span>
       <h4>Presidential Prompters</h4>
       <p>Robotic &amp; basic presidential teleprompters for keynotes and speeches.</p>
@@ -649,7 +663,7 @@ footer .foot-right span{color:var(--red)}
       <p>Specialty prompters for dynamic camera setups and mobile shooting.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="https://images.unsplash.com/photo-1609234656388-0eced2c3ae63?w=400&h=280&fit=crop&auto=format&q=80" alt="Virtual streaming teleprompter" loading="lazy" width="400" height="280">
+      <img class="eq-img" src="images/virtual-streaming.jpg" alt="Virtual streaming teleprompter by Teleprompter USA" loading="lazy" width="800" height="450">
       <span class="eq-icon">&#127760;</span>
       <h4>Virtual / Streaming</h4>
       <p>Remote solutions for Zoom, webinars, and virtual events in any language.</p>
@@ -711,11 +725,15 @@ footer .foot-right span{color:var(--red)}
   </div>
 </section>
 
-<!-- BOTTOM BANNER -->
+<!-- BOTTOM BRAND BANNER -->
+<div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
+<div class="brand-banner">
+  <div class="brand-banner-text"><span class="bb-red">Teleprompter</span> <span class="bb-gold">USA</span></div>
+  <div class="brand-banner-sub">Working for Over 26 Years &bull; Veteran-Owned &bull; USA Operated</div>
+</div>
 <div class="contact-banner">
   <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a><span class="cb-sep">|</span>Available 24/7<span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
 </div>
-
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
 
 <!-- FOOTER -->
@@ -1013,7 +1031,7 @@ cloud.innerHTML = clients.map(c => '<div class="client-tag">' + c + '</div>').jo
 
 // ===== PORTFOLIO =====
 const portfolioImages = [
-  'https://images.unsplash.com/photo-1540575467063-178a50b2e4d6?w=800&h=500&fit=crop&auto=format&q=80',
+  'images/alamo-teleprompter.jpg',
   'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=500&fit=crop&auto=format&q=80',
   'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=500&fit=crop&auto=format&q=80',
   'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=500&fit=crop&auto=format&q=80',
