@@ -57,21 +57,21 @@ nav,.hero,.ticker,.value-section,.proof-section,.staff-section,.equip-section,.c
 
 
 /* ========== NAV ========== */
-nav{position:fixed;top:0;width:100%;z-index:1000;padding:12px 48px;display:flex;justify-content:space-between;align-items:center;transition:all .4s ease}
-nav.scrolled{background:rgba(247,246,243,.97);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.05)}
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:12px 48px;display:flex;justify-content:space-between;align-items:center;transition:all .4s ease;background:var(--navy-deep);border-bottom:1px solid rgba(255,255,255,.1)}
+nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 2px 20px rgba(0,0,0,.2)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo-img-wrap{position:relative;display:inline-block}
 .nav-logo img{height:90px;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.12)}
 .nav-logo-r{position:absolute;top:2px;right:2px;font-size:.55rem;font-weight:700;color:#fff;background:rgba(0,0,0,.55);border-radius:50%;width:14px;height:14px;display:flex;align-items:center;justify-content:center;line-height:0;padding-top:1px;pointer-events:none}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
-.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.65rem;color:var(--navy);letter-spacing:2px;white-space:nowrap}
+.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.65rem;color:#fff;letter-spacing:2px;white-space:nowrap}
 .nav-logo-name sup{font-size:.6rem;vertical-align:super;margin-left:2px;color:var(--text-muted)}
-.nav-logo-tag{font-size:.6rem;color:var(--red);font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo-tag{font-size:.6rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
 .nav-right{display:flex;align-items:center;gap:32px}
 .nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width .3s}
-.nav-links a:hover{color:var(--text-dark)}
+.nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
 .nav-cta{padding:10px 22px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;transition:all .3s;border:none;border-radius:4px}
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
@@ -1026,7 +1026,7 @@ const portfolioImages = [
   'images/steadicam-broadcast.jpg',
   'images/studio-slider.jpg',
   'images/gma-national-tv.jpg',
-  'images/election-coverage.jpg',
+  'images/super-tuesday-broadcast.jpg',
   'images/gma-outdoor.jpg'
 ];
 
