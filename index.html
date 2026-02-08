@@ -79,7 +79,6 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 /* ========== HERO ========== */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 48px 60px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
 .hero-bg-effects{position:absolute;inset:0;pointer-events:none}
-#heroSparkles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
 
@@ -254,6 +253,7 @@ h1 .gold{color:var(--navy)}
 .staff-photo-wrap img{width:100%;height:auto;display:block}
 
 /* ========== EQUIPMENT ========== */
+.portfolio-section,.video-section,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.payment-section{content-visibility:auto;contain-intrinsic-size:auto 600px}
 .equip-section{padding:100px 48px;border-top:1px solid var(--border);background:rgba(239,237,232,.9)}
 .equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
 .equip-item{padding:28px 24px;border:1px solid var(--border);background:rgba(255,255,255,.8);text-align:center;transition:all .3s}
@@ -467,8 +467,6 @@ footer .foot-right span{color:var(--red)}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-effects"></div>
-  <canvas id="heroSparkles"></canvas>
-
   <div class="hero-content">
     <h1 class="hero-title">
       <span class="red">Teleprompter</span> <span class="gold">USA</span><br>Your Words, Delivered Flawlessly.
@@ -737,15 +735,15 @@ footer .foot-right span{color:var(--red)}
 <script>
 
 
-// ===== ANIMATED STARFIELD BACKGROUND =====
+// ===== LIGHTWEIGHT STARFIELD (performance-optimized) =====
 (function() {
   const canvas = document.getElementById('patriotCanvas');
   const ctx = canvas.getContext('2d');
-  let W, H, t = 0;
+  let W, H, t = 0, rafId = null, isVisible = true;
 
-  const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-  const STAR_COUNT = isMobile ? 150 : 350;
-  const SHOOTER_INTERVAL = isMobile ? 300 : 150;
+  const isMobile = window.innerWidth < 768;
+  const STAR_COUNT = isMobile ? 40 : 90;
+  const SHOOTER_INTERVAL = isMobile ? 400 : 200;
 
   function resize() {
     W = canvas.width = window.innerWidth;
@@ -754,230 +752,79 @@ footer .foot-right span{color:var(--red)}
   window.addEventListener('resize', resize);
   resize();
 
-  // Brand colors for stars
-  const starColors = [
-    [191,10,48],   // red
-    [27,42,74],    // navy
-    [139,112,50],  // gold
-    [100,100,120], // silver
-    [191,10,48],   // red (extra)
-    [27,42,74]     // navy (extra)
-  ];
+  const starColors = ['rgba(191,10,48,','rgba(27,42,74,','rgba(139,112,50,','rgba(100,100,120,'];
 
-  // ---- Twinkling stars ----
   const stars = [];
   for (let i = 0; i < STAR_COUNT; i++) {
     stars.push({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      size: Math.random() * 2.5 + 0.8,
-      points: Math.random() > 0.5 ? 4 : 5,
-      color: starColors[Math.floor(Math.random() * starColors.length)],
-      twinkleSpeed: Math.random() * 0.03 + 0.008,
+      x: Math.random() * W, y: Math.random() * H,
+      size: Math.random() * 2 + 0.6,
+      ci: Math.floor(Math.random() * starColors.length),
+      twinkleSpeed: Math.random() * 0.025 + 0.008,
       twinklePhase: Math.random() * Math.PI * 2,
-      maxAlpha: Math.random() * 0.25 + 0.08,
-      vy: -(Math.random() * 0.08 + 0.01),
-      vx: (Math.random() - 0.5) * 0.04,
-      rotation: Math.random() * Math.PI * 2,
-      rotSpeed: (Math.random() - 0.5) * 0.003
+      maxAlpha: Math.random() * 0.2 + 0.06,
+      vy: -(Math.random() * 0.06 + 0.01),
+      vx: (Math.random() - 0.5) * 0.03
     });
   }
 
-  // ---- Shooting stars ----
   const shooters = [];
   function spawnShooter() {
-    const fromLeft = Math.random() > 0.5;
-    const c = starColors[Math.floor(Math.random() * starColors.length)];
+    if (shooters.length > 2) return;
+    const left = Math.random() > 0.5;
+    const ci = Math.floor(Math.random() * starColors.length);
     shooters.push({
-      x: fromLeft ? Math.random() * W * 0.3 : W * 0.7 + Math.random() * W * 0.3,
-      y: Math.random() * H * 0.5,
-      vx: fromLeft ? (Math.random() * 3 + 2) : -(Math.random() * 3 + 2),
-      vy: Math.random() * 1.5 + 0.8,
-      length: Math.random() * 60 + 30,
-      alpha: 0.35,
-      color: c,
-      life: 0,
-      maxLife: Math.random() * 60 + 40
+      x: left ? Math.random() * W * 0.3 : W * 0.7 + Math.random() * W * 0.3,
+      y: Math.random() * H * 0.4,
+      vx: left ? (Math.random() * 3 + 2) : -(Math.random() * 3 + 2),
+      vy: Math.random() * 1.2 + 0.6,
+      len: Math.random() * 50 + 25, alpha: 0.3, ci: ci,
+      life: 0, maxLife: Math.random() * 50 + 35
     });
-  }
-
-  // Draw a star shape
-  function drawStar(cx, cy, points, outerR, innerR, rotation, color, alpha) {
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(rotation);
-    ctx.beginPath();
-    for (let i = 0; i < points * 2; i++) {
-      const r = i % 2 === 0 ? outerR : innerR;
-      const angle = (Math.PI * i) / points - Math.PI / 2;
-      if (i === 0) ctx.moveTo(Math.cos(angle) * r, Math.sin(angle) * r);
-      else ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
-    }
-    ctx.closePath();
-    ctx.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + alpha + ')';
-    ctx.fill();
-
-    // Glow effect
-    ctx.shadowBlur = outerR * 3;
-    ctx.shadowColor = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + (alpha * 0.5) + ')';
-    ctx.fill();
-    ctx.restore();
   }
 
   function animate() {
+    if (!isVisible) { rafId = null; return; }
     t++;
     ctx.clearRect(0, 0, W, H);
-    ctx.shadowBlur = 0;
 
-    // Twinkling stars
     for (const s of stars) {
       s.twinklePhase += s.twinkleSpeed;
-      s.y += s.vy;
-      s.x += s.vx;
-      s.rotation += s.rotSpeed;
+      s.y += s.vy; s.x += s.vx;
+      if (s.y < -5) { s.y = H + 5; s.x = Math.random() * W; }
+      if (s.x < -5) s.x = W + 5;
+      if (s.x > W + 5) s.x = -5;
 
-      // Wrap around
-      if (s.y < -10) { s.y = H + 10; s.x = Math.random() * W; }
-      if (s.x < -10) s.x = W + 10;
-      if (s.x > W + 10) s.x = -10;
-
-      const twinkle = 0.3 + 0.7 * ((Math.sin(s.twinklePhase) + 1) / 2);
-      const alpha = s.maxAlpha * twinkle;
-      const outerR = s.size * (0.85 + 0.15 * twinkle);
-      const innerR = outerR * 0.4;
-
-      drawStar(s.x, s.y, s.points, outerR, innerR, s.rotation, s.color, alpha);
+      const a = s.maxAlpha * (0.3 + 0.7 * ((Math.sin(s.twinklePhase) + 1) / 2));
+      ctx.fillStyle = starColors[s.ci] + a + ')';
+      ctx.fillRect(s.x - s.size * 0.5, s.y - s.size * 0.5, s.size, s.size);
     }
 
-    // Spawn shooting stars
     if (t % SHOOTER_INTERVAL === 0) spawnShooter();
 
-    // Draw shooting stars
     for (let i = shooters.length - 1; i >= 0; i--) {
       const sh = shooters[i];
-      sh.x += sh.vx;
-      sh.y += sh.vy;
-      sh.life++;
-
-      const fadeIn = Math.min(sh.life / 10, 1);
-      const fadeOut = Math.max(1 - (sh.life / sh.maxLife), 0);
-      const alpha = sh.alpha * fadeIn * fadeOut;
-
-      if (alpha <= 0 || sh.life > sh.maxLife) {
-        shooters.splice(i, 1);
-        continue;
-      }
-
-      // Tail
-      const tailX = sh.x - sh.vx * (sh.length / Math.sqrt(sh.vx * sh.vx + sh.vy * sh.vy));
-      const tailY = sh.y - sh.vy * (sh.length / Math.sqrt(sh.vx * sh.vx + sh.vy * sh.vy));
-      const grad = ctx.createLinearGradient(sh.x, sh.y, tailX, tailY);
-      grad.addColorStop(0, 'rgba(' + sh.color[0] + ',' + sh.color[1] + ',' + sh.color[2] + ',' + alpha + ')');
-      grad.addColorStop(1, 'rgba(' + sh.color[0] + ',' + sh.color[1] + ',' + sh.color[2] + ',0)');
-      ctx.beginPath();
-      ctx.moveTo(sh.x, sh.y);
-      ctx.lineTo(tailX, tailY);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      // Head glow
-      drawStar(sh.x, sh.y, 4, 3, 1.2, t * 0.05, sh.color, alpha * 1.5);
+      sh.x += sh.vx; sh.y += sh.vy; sh.life++;
+      const a = sh.alpha * Math.min(sh.life / 8, 1) * Math.max(1 - sh.life / sh.maxLife, 0);
+      if (a <= 0 || sh.life > sh.maxLife) { shooters.splice(i, 1); continue; }
+      const mag = Math.sqrt(sh.vx * sh.vx + sh.vy * sh.vy);
+      const tx = sh.x - sh.vx * (sh.len / mag), ty = sh.y - sh.vy * (sh.len / mag);
+      const g = ctx.createLinearGradient(sh.x, sh.y, tx, ty);
+      g.addColorStop(0, starColors[sh.ci] + a + ')');
+      g.addColorStop(1, starColors[sh.ci] + '0)');
+      ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(tx, ty);
+      ctx.strokeStyle = g; ctx.lineWidth = 1.2; ctx.stroke();
     }
 
-    requestAnimationFrame(animate);
-  }
-  animate();
-})();
-
-// ===== HERO SPARKLE PARTICLES =====
-(function() {
-  const hc = document.getElementById('heroSparkles');
-  const hctx = hc.getContext('2d');
-  const hero = hc.parentElement;
-  let hw, hh;
-
-  function hResize() {
-    hw = hc.width = hero.offsetWidth;
-    hh = hc.height = hero.offsetHeight;
-  }
-  window.addEventListener('resize', hResize);
-  hResize();
-
-  const isMob = window.innerWidth < 768;
-  const SPARKLE_COUNT = isMob ? 35 : 80;
-
-  const sparkles = [];
-  for (let i = 0; i < SPARKLE_COUNT; i++) {
-    sparkles.push({
-      x: Math.random() * hw,
-      y: Math.random() * hh,
-      size: Math.random() * 1.8 + 0.4,
-      alpha: 0,
-      maxAlpha: Math.random() * 0.5 + 0.15,
-      fadeSpeed: Math.random() * 0.012 + 0.004,
-      phase: Math.random() * Math.PI * 2,
-      driftX: (Math.random() - 0.5) * 0.15,
-      driftY: (Math.random() - 0.5) * 0.1,
-      color: Math.random() < 0.35 ? '191,10,48' : Math.random() < 0.6 ? '27,42,74' : '139,112,50',
-      life: Math.random() * 300,
-      maxLife: Math.random() * 250 + 150
-    });
+    rafId = requestAnimationFrame(animate);
   }
 
-  function resetSparkle(s) {
-    s.x = Math.random() * hw;
-    s.y = Math.random() * hh;
-    s.life = 0;
-    s.maxLife = Math.random() * 250 + 150;
-    s.size = Math.random() * 1.8 + 0.4;
-    s.maxAlpha = Math.random() * 0.5 + 0.15;
-  }
-
-  function sparkleAnim() {
-    hctx.clearRect(0, 0, hw, hh);
-
-    for (const s of sparkles) {
-      s.life++;
-      s.x += s.driftX;
-      s.y += s.driftY;
-      s.phase += s.fadeSpeed;
-
-      // Fade in then fade out over lifetime
-      const progress = s.life / s.maxLife;
-      const envelope = progress < 0.2 ? progress / 0.2 : progress > 0.8 ? (1 - progress) / 0.2 : 1;
-      const twinkle = 0.4 + 0.6 * ((Math.sin(s.phase * 4) + 1) / 2);
-      s.alpha = s.maxAlpha * envelope * twinkle;
-
-      if (s.life > s.maxLife || s.x < -5 || s.x > hw + 5 || s.y < -5 || s.y > hh + 5) {
-        resetSparkle(s);
-        continue;
-      }
-
-      // Draw cross-shaped sparkle
-      hctx.save();
-      hctx.globalAlpha = s.alpha;
-      hctx.fillStyle = 'rgba(' + s.color + ',1)';
-
-      // Horizontal ray
-      hctx.fillRect(s.x - s.size * 2, s.y - 0.3, s.size * 4, 0.6);
-      // Vertical ray
-      hctx.fillRect(s.x - 0.3, s.y - s.size * 2, 0.6, s.size * 4);
-
-      // Center dot glow
-      hctx.beginPath();
-      hctx.arc(s.x, s.y, s.size * 0.6, 0, Math.PI * 2);
-      hctx.fillStyle = 'rgba(' + s.color + ',' + (s.alpha * 0.8) + ')';
-      hctx.shadowBlur = s.size * 4;
-      hctx.shadowColor = 'rgba(' + s.color + ',' + (s.alpha * 0.6) + ')';
-      hctx.fill();
-
-      hctx.restore();
-    }
-
-    requestAnimationFrame(sparkleAnim);
-  }
-  sparkleAnim();
+  // Pause when tab is hidden
+  document.addEventListener('visibilitychange', function() {
+    isVisible = !document.hidden;
+    if (isVisible && !rafId) rafId = requestAnimationFrame(animate);
+  });
+  rafId = requestAnimationFrame(animate);
 })();
 </script>
 
@@ -1091,7 +938,7 @@ const portfolioData = [
 const portfolioGrid = document.getElementById('portfolioGrid');
 portfolioGrid.innerHTML = portfolioData.map(p => 
   '<div class="portfolio-card reveal">' +
-    '<img class="portfolio-img" src="' + p.img + '" alt="' + p.title + '" loading="lazy">' +
+    '<img class="portfolio-img" src="' + p.img + '" alt="' + p.title + '" loading="lazy" decoding="async">' +
     '<div class="portfolio-body">' +
       '<span class="portfolio-tag">' + p.tag + '</span>' +
       '<h3>' + p.title + '</h3>' +
