@@ -93,9 +93,9 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-logo-img-wrap{position:relative;display:inline-block}
 .nav-logo img{height:130px;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.12)}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
-.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#fff;letter-spacing:2.5px;white-space:nowrap}
-.nav-logo-name .reg{font-size:.75rem;vertical-align:super;margin-left:2px;color:rgba(255,255,255,.5);font-weight:400}
-.nav-logo-tag{font-size:.6rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:3px;white-space:nowrap}
+.nav-logo-name .reg{font-size:.75em;vertical-align:baseline;margin-left:2px;color:rgba(255,255,255,.55);font-weight:400}
+.nav-logo-tag{font-size:.65rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
 .nav-right{display:flex;align-items:center;gap:32px}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
@@ -325,8 +325,8 @@ footer .foot-right span{color:var(--red)}
 @media(max-width:900px){
   nav{padding:14px 24px}
   .nav-links{display:none}
-  .nav-logo img{height:95px}
-  .nav-logo-name{font-size:1.85rem}
+  .nav-logo img{height:100px}
+  .nav-logo-name{font-size:clamp(1.8rem,4vw,2.6rem)}
   .hero{padding:115px 24px 48px}
   .value-grid{grid-template-columns:1fr}
   .stats-row{gap:36px;flex-wrap:wrap}
@@ -342,6 +342,8 @@ footer .foot-right span{color:var(--red)}
 @media(max-width:600px){
   /* Safe area padding for notched phones (iPhone X+) */
   nav{padding:14px max(16px, env(safe-area-inset-left)) 14px max(16px, env(safe-area-inset-right))}
+  .nav-logo img{height:80px}
+  .nav-logo-name{font-size:1.6rem}
   .hero{padding:110px max(16px, env(safe-area-inset-left)) 40px max(16px, env(safe-area-inset-right));min-height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:100svh}
   footer{padding-bottom:max(24px, env(safe-area-inset-bottom))}
 
@@ -380,6 +382,8 @@ footer .foot-right span{color:var(--red)}
 @media(max-width:380px){
   .equip-grid{grid-template-columns:1fr}
   nav{padding:12px 12px}
+  .nav-logo img{height:65px}
+  .nav-logo-name{font-size:1.35rem}
   .hero{padding:100px 12px 36px}
   .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.portfolio-section,.video-section{padding:60px 12px}
   .payment-section{padding:60px 12px}
