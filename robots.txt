@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://teleprompterusa.com/sitemap.xml
+Sitemap: https://teleprompterusa.vercel.app/sitemap.xml
