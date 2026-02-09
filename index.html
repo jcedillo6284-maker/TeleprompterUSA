@@ -188,7 +188,7 @@ h1 .gold{color:var(--navy)}
 .portfolio-card{position:relative;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.85);transition:all .4s ease;max-width:100%}
 .portfolio-card::after{content:'TeleprompterUSA2026';position:absolute;top:110px;left:50%;transform:translate(-50%,-50%) rotate(-20deg);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:rgba(0,0,0,.06);white-space:nowrap;pointer-events:none;z-index:2;text-transform:uppercase}
 .portfolio-card:hover{border-color:rgba(191,10,48,.2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.portfolio-img{width:100%;height:auto;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
+.portfolio-img{width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
 .portfolio-card:hover .portfolio-img{transform:scale(1.05);filter:brightness(1)}
 .portfolio-body{padding:24px}
 .portfolio-tag{display:inline-block;padding:4px 10px;background:var(--red);font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
@@ -292,7 +292,8 @@ h1 .gold{color:var(--navy)}
 .equip-item .eq-icon{font-size:1.6rem;margin-bottom:12px;display:block}
 .equip-item h4{font-size:.9rem;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
 .equip-item p{font-size:.8rem;color:var(--text-body);line-height:1.5}
-.equip-item .eq-img{width:100%;height:auto;border-radius:0;margin-bottom:16px;display:block;border:5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
+.equip-item .eq-img{width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;border-radius:0;margin-bottom:16px;display:block;border:5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
+.eq-img[src*="concert-stage"]{object-fit:cover;object-position:center 40%}
 
 /* ========== CONTACT FORM ========== */
 .contact-form-section{padding:100px 48px;text-align:center;position:relative;overflow:hidden;background:var(--navy-deep)}
