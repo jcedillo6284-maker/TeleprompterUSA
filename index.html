@@ -366,10 +366,10 @@ footer .foot-right span{color:var(--red)}
 /* Mobile */
 @media(max-width:600px){
   /* Safe area padding for notched phones (iPhone X+) */
-  nav{padding:14px max(16px, env(safe-area-inset-left)) 14px max(16px, env(safe-area-inset-right));overflow:hidden}
+  nav{padding:14px max(16px, env(safe-area-inset-left)) 14px max(16px, env(safe-area-inset-right));overflow:visible}
   .nav-logo{min-width:0;flex:1 1 0;gap:8px}
   .nav-logo img{height:70px;width:70px;flex-shrink:0;object-fit:contain}
-  .nav-logo-text{min-width:0}
+  .nav-logo-text{min-width:0;overflow:visible}
   .nav-logo-name{font-size:clamp(.95rem,3.2vw,1.5rem);letter-spacing:0.5px}
   .nav-logo-slogan{font-size:clamp(.35rem,1.1vw,.45rem);letter-spacing:1.5px;margin-top:2px}
   .nav-logo-tag{font-size:clamp(.3rem,0.9vw,.38rem);letter-spacing:1px}
