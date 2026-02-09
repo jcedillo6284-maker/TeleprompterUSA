@@ -283,7 +283,7 @@ h1 .gold{color:var(--navy)}
 .staff-photo-wrap img{width:100%;height:auto;display:block}
 
 /* ========== EQUIPMENT ========== */
-.portfolio-section,.video-section,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.payment-section{content-visibility:auto;contain-intrinsic-size:auto 600px}
+.portfolio-section,.video-section,.value-section,.proof-section,.staff-section,.equip-section,.cta-section,.payment-section,.contact-form-section{content-visibility:auto;contain-intrinsic-size:auto 600px}
 .equip-section{padding:100px 48px;border-top:1px solid var(--border);background:rgba(239,237,232,.9)}
 .equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
 .equip-item{padding:28px 24px;border:1px solid var(--border);background:rgba(255,255,255,.8);text-align:center;transition:all .3s}
@@ -292,6 +292,26 @@ h1 .gold{color:var(--navy)}
 .equip-item h4{font-size:.9rem;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
 .equip-item p{font-size:.8rem;color:var(--text-body);line-height:1.5}
 .equip-item .eq-img{width:100%;height:160px;object-fit:cover;border-radius:0;margin-bottom:16px;display:block;border:5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
+
+/* ========== CONTACT FORM ========== */
+.contact-form-section{padding:100px 48px;text-align:center;position:relative;overflow:hidden;background:var(--navy-deep)}
+.contact-form-box{max-width:600px;margin:0 auto;position:relative;z-index:2}
+.contact-form-box .section-label{color:rgba(255,255,255,.7);justify-content:center}
+.contact-form-box .section-label::before{display:none}
+.contact-form-box h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:12px;color:#fff}
+.contact-form-box .form-desc{color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:40px;font-size:1rem}
+.contact-form .form-group{margin-bottom:20px;text-align:left}
+.contact-form .form-group label{display:block;font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+.contact-form .form-group input,.contact-form .form-group textarea{width:100%;padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:4px;outline:none;transition:border-color .3s,background .3s}
+.contact-form .form-group input:focus,.contact-form .form-group textarea:focus{border-color:var(--red);background:rgba(255,255,255,.12)}
+.contact-form .form-group input::placeholder,.contact-form .form-group textarea::placeholder{color:rgba(255,255,255,.3)}
+.contact-form .form-group textarea{min-height:140px;resize:vertical}
+.contact-form .form-submit{display:inline-flex;align-items:center;gap:10px;padding:16px 48px;background:var(--red);color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .3s,transform .2s;letter-spacing:.5px;margin-top:8px}
+.contact-form .form-submit:hover{background:#D4133C;transform:translateY(-1px)}
+.contact-form .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-status{margin-top:20px;padding:14px 20px;border-radius:4px;font-size:.9rem;font-weight:500;display:none}
+.form-status.success{display:block;background:rgba(16,185,129,.15);color:#10B981;border:1px solid rgba(16,185,129,.3)}
+.form-status.error{display:block;background:rgba(239,68,68,.15);color:#EF4444;border:1px solid rgba(239,68,68,.3)}
 
 /* ========== CTA SECTION ========== */
 .cta-section{padding:100px 48px;text-align:center;position:relative;overflow:hidden;background:rgba(247,246,243,.92)}
@@ -334,7 +354,7 @@ footer .foot-right span{color:var(--red)}
   .value-grid{grid-template-columns:1fr}
   .stats-row{gap:36px;flex-wrap:wrap}
   .cta-contact{flex-direction:column;gap:20px}
-  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section{padding:80px 24px}
+  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section{padding:80px 24px}
   .portfolio-section,.video-section{padding:80px 24px}
   .contact-banner .cb-sep{display:none}
   .contact-banner{font-size:.75rem;line-height:1.8}
@@ -392,7 +412,7 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-slogan{font-size:.37rem;letter-spacing:1.5px;margin-top:1px}
   .nav-logo-tag{font-size:.32rem;letter-spacing:1px}
   .hero{padding:100px 12px 36px}
-  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.portfolio-section,.video-section{padding:60px 12px}
+  .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section,.portfolio-section,.video-section{padding:60px 12px}
   .payment-section{padding:60px 12px}
   .contact-banner .rush-badge{display:block;margin:6px auto 0;width:fit-content}
 }
@@ -747,6 +767,36 @@ footer .foot-right span{color:var(--red)}
 
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
 
+<!-- CONTACT FORM -->
+<section class="contact-form-section" id="message">
+  <div class="contact-form-box reveal">
+    <div class="section-label">Send a Message</div>
+    <h2>Get In <span style="color:var(--red)">Touch</span></h2>
+    <p class="form-desc">Have a question or ready to book? Send us a message and we'll get back to you promptly.</p>
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="formName">Name</label>
+        <input type="text" id="formName" name="name" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="formEmail">Email</label>
+        <input type="email" id="formEmail" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="formMessage">Message</label>
+        <textarea id="formMessage" name="message" placeholder="Tell us about your event or project..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">
+        Send Message
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</section>
+
+<div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
+
 <!-- CTA / CONTACT -->
 <section class="cta-section" id="contact">
   <div class="cta-box reveal">
@@ -1010,6 +1060,67 @@ document.addEventListener('keydown', e => {
     contactModal.classList.remove('active');
     unlockBody();
   }
+});
+
+// ===== CONTACT FORM =====
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('formName').value.trim();
+  const email = document.getElementById('formEmail').value.trim();
+  const message = document.getElementById('formMessage').value.trim();
+
+  // Reset status
+  formStatus.className = 'form-status';
+  formStatus.style.display = 'none';
+
+  // Validation
+  if (!name || !email || !message) {
+    formStatus.textContent = 'Please fill in all fields.';
+    formStatus.className = 'form-status error';
+    formStatus.style.display = 'block';
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    formStatus.textContent = 'Please enter a valid email address.';
+    formStatus.className = 'form-status error';
+    formStatus.style.display = 'block';
+    return;
+  }
+
+  var submitBtn = contactForm.querySelector('.form-submit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending\u2026';
+
+  fetch('https://formsubmit.co/ajax/waldo@teleprompterusa.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name: name, email: email, message: message })
+  })
+  .then(function(response) { return response.json(); })
+  .then(function(data) {
+    if (data.success) {
+      formStatus.textContent = 'Message sent successfully! We\u2019ll get back to you soon.';
+      formStatus.className = 'form-status success';
+      formStatus.style.display = 'block';
+      contactForm.reset();
+    } else {
+      throw new Error('fail');
+    }
+  })
+  .catch(function() {
+    formStatus.textContent = 'Something went wrong. Please try again or call us at 210-391-8662.';
+    formStatus.className = 'form-status error';
+    formStatus.style.display = 'block';
+  })
+  .finally(function() {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Send Message <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  });
 });
 
 </script>
