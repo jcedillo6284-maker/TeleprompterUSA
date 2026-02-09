@@ -187,7 +187,7 @@ h1 .gold{color:var(--navy)}
 .portfolio-card{position:relative;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.85);transition:all .4s ease}
 .portfolio-card::after{content:'TeleprompterUSA2026';position:absolute;top:110px;left:50%;transform:translate(-50%,-50%) rotate(-20deg);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:rgba(0,0,0,.06);white-space:nowrap;pointer-events:none;z-index:2;text-transform:uppercase}
 .portfolio-card:hover{border-color:rgba(191,10,48,.2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.portfolio-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .6s ease,filter .4s ease}
+.portfolio-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
 .portfolio-card:hover .portfolio-img{transform:scale(1.05);filter:brightness(1)}
 .portfolio-body{padding:24px}
 .portfolio-tag{display:inline-block;padding:4px 10px;background:var(--red);font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
@@ -291,7 +291,7 @@ h1 .gold{color:var(--navy)}
 .equip-item .eq-icon{font-size:1.6rem;margin-bottom:12px;display:block}
 .equip-item h4{font-size:.9rem;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
 .equip-item p{font-size:.8rem;color:var(--text-body);line-height:1.5}
-.equip-item .eq-img{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:16px;display:block}
+.equip-item .eq-img{width:100%;height:160px;object-fit:cover;border-radius:0;margin-bottom:16px;display:block;border:5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
 
 /* ========== CTA SECTION ========== */
 .cta-section{padding:100px 48px;text-align:center;position:relative;overflow:hidden;background:rgba(247,246,243,.92)}
@@ -710,6 +710,12 @@ footer .foot-right span{color:var(--red)}
       <span class="eq-icon">&#127760;</span>
       <h4>Virtual / Streaming</h4>
       <p>Remote solutions for Zoom, webinars, and virtual events in any language.</p>
+    </div>
+    <div class="equip-item reveal">
+      <img class="eq-img" src="images/interrotron-teleprompter.jpg" alt="Interrotron teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450">
+      <span class="eq-icon">&#128065;&#65039;</span>
+      <h4>Interrotron</h4>
+      <p>Enables direct eye-contact between talent and interviewer through the camera lens, creating natural and engaging on-screen conversations for documentaries, interviews, and corporate videos.</p>
     </div>
   </div>
 </section>
