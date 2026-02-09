@@ -248,7 +248,8 @@ h1 .gold{color:var(--navy)}
 .client-tag:hover{color:var(--red);border-color:var(--red);background:#fff;box-shadow:0 4px 20px rgba(191,10,48,.1);transform:scale(1.05)}
 
 /* ========== CONTACT BANNER ========== */
-.contact-banner{background:var(--navy);color:#fff;text-align:center;padding:18px 24px;font-size:.85rem;letter-spacing:.5px;word-break:break-word;overflow-wrap:break-word}
+.contact-banner{background:var(--navy);color:#fff;text-align:center;padding:18px 24px;font-size:.85rem;letter-spacing:.5px}
+.contact-banner .cb-item{display:inline}
 .contact-banner a{color:#fff;text-decoration:none;font-weight:700}
 .contact-banner a:hover{text-decoration:underline}
 .contact-banner .cb-sep{margin:0 12px;opacity:.4}
@@ -360,7 +361,9 @@ footer .foot-right span{color:var(--red)}
   .portfolio-section,.video-section{padding:80px 24px}
   section[id]{scroll-margin-top:130px}
   .contact-banner .cb-sep{display:none}
-  .contact-banner{font-size:.75rem;line-height:1.8}
+  .contact-banner{font-size:.75rem;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 24px}
+  .contact-banner .cb-item{display:block;white-space:nowrap}
+  .contact-banner .rush-badge{display:block;margin:6px auto 0;width:fit-content;margin-left:0}
   footer{padding:28px 24px;flex-direction:column;text-align:center}
 }
 
@@ -430,7 +433,6 @@ footer .foot-right span{color:var(--red)}
   .hero{padding:110px 12px 36px}
   .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section,.portfolio-section,.video-section{padding:60px 12px}
   .payment-section{padding:60px 12px}
-  .contact-banner .rush-badge{display:block;margin:6px auto 0;width:fit-content}
 }
 
 /* Disable hover effects on touch devices to prevent sticky :hover states */
@@ -592,7 +594,7 @@ footer .foot-right span{color:var(--red)}
 </section>
 
 <div class="contact-banner">
-  <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a><span class="cb-sep">|</span><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a><span class="cb-sep">|</span>Available 24/7<span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
+  <span class="cb-item"><a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span><span class="cb-sep">|</span><span class="cb-item">Available 24/7</span><span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
 </div>
 
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
@@ -640,7 +642,7 @@ footer .foot-right span{color:var(--red)}
 </section>
 
 <div class="contact-banner">
-  Call now: <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span>Email: <a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a><span class="cb-sep">|</span><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a>
+  <span class="cb-item">Call now: <a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item">Email: <a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span>
 </div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
@@ -757,7 +759,7 @@ footer .foot-right span{color:var(--red)}
 </section>
 
 <div class="contact-banner">
-  <a href="tel:2103918662">210-391-8662</a><span class="cb-sep">|</span><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a><span class="cb-sep">|</span><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a><span class="cb-sep">|</span>24/7 Nationwide Service<span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
+  <span class="cb-item"><a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span><span class="cb-sep">|</span><span class="cb-item">24/7 Nationwide Service</span><span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
 </div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
