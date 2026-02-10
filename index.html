@@ -248,12 +248,13 @@ h1 .gold{color:var(--navy)}
 .client-tag:hover{color:var(--red);border-color:var(--red);background:#fff;box-shadow:0 4px 20px rgba(191,10,48,.1);transform:scale(1.05)}
 
 /* ========== CONTACT BANNER ========== */
-.contact-banner{background:var(--navy);color:#fff;text-align:center;padding:18px 24px;font-size:.85rem;letter-spacing:.5px}
-.contact-banner .cb-item{display:inline}
+.contact-banner{background:var(--navy);color:#fff;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 0;padding:18px 24px;font-size:.85rem;letter-spacing:.5px}
+.contact-banner .cb-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 0}
+.contact-banner .cb-item{white-space:nowrap}
 .contact-banner a{color:#fff;text-decoration:none;font-weight:700}
 .contact-banner a:hover{text-decoration:underline}
 .contact-banner .cb-sep{margin:0 12px;opacity:.4}
-.contact-banner .rush-badge{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:3px 12px;border-radius:4px;margin-left:16px;font-size:.8rem;letter-spacing:1px;animation:pulse 2s infinite}
+.contact-banner .rush-badge{display:block;width:100%;background:var(--red);color:#fff;font-weight:700;padding:5px 16px;border-radius:4px;font-size:.8rem;letter-spacing:1px;text-align:center;animation:pulse 2s infinite}
 .bottom-brand{background:var(--offwhite);text-align:center;padding:32px 24px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .bottom-brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:6px;text-transform:uppercase;color:var(--text-dark)}
 .bottom-brand-name .bbr{color:var(--red)}
@@ -360,10 +361,11 @@ footer .foot-right span{color:var(--red)}
   .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section{padding:80px 24px}
   .portfolio-section,.video-section{padding:80px 24px}
   section[id]{scroll-margin-top:130px}
+  .contact-banner{flex-direction:column;gap:6px;padding:14px 16px;font-size:.75rem}
+  .contact-banner .cb-row{flex-direction:column;gap:4px}
   .contact-banner .cb-sep{display:none}
-  .contact-banner{font-size:.75rem;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 24px}
-  .contact-banner .cb-item{display:block;white-space:nowrap}
-  .contact-banner .rush-badge{display:block;margin:6px 0 0;margin-left:auto;margin-right:auto;text-align:center}
+  .contact-banner .cb-item{display:block;text-align:center}
+  .contact-banner .rush-badge{margin-top:4px}
   footer{padding:28px 24px;flex-direction:column;text-align:center}
 }
 
@@ -605,7 +607,10 @@ footer .foot-right span{color:var(--red)}
 </section>
 
 <div class="contact-banner">
-  <span class="cb-item"><a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span><span class="cb-sep">|</span><span class="cb-item">Available 24/7</span><span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
+  <div class="cb-row">
+    <span class="cb-item"><a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span><span class="cb-sep">|</span><span class="cb-item">Available 24/7</span>
+  </div>
+  <span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
 </div>
 
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
@@ -653,7 +658,9 @@ footer .foot-right span{color:var(--red)}
 </section>
 
 <div class="contact-banner">
-  <span class="cb-item">Call now: <a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item">Email: <a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span>
+  <div class="cb-row">
+    <span class="cb-item">Call now: <a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item">Email: <a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span>
+  </div>
 </div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
@@ -782,7 +789,10 @@ footer .foot-right span{color:var(--red)}
 </section>
 
 <div class="contact-banner">
-  <span class="cb-item"><a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span><span class="cb-sep">|</span><span class="cb-item">24/7 Nationwide Service</span><span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
+  <div class="cb-row">
+    <span class="cb-item"><a href="tel:2103918662">210-391-8662</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="mailto:waldo@teleprompterusa.com">waldo@teleprompterusa.com</a></span><span class="cb-sep">|</span><span class="cb-item"><a href="https://www.instagram.com/teleprompter_usa/" target="_blank" rel="noopener noreferrer">@teleprompter_usa</a></span><span class="cb-sep">|</span><span class="cb-item">24/7 Nationwide Service</span>
+  </div>
+  <span class="rush-badge">ACCEPTING ALL RUSH ORDERS</span>
 </div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
