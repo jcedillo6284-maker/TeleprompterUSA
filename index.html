@@ -108,27 +108,27 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
 
 /* ========== HERO ========== */
-.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:110px 24px 24px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:28px;padding:130px 24px 48px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
 .hero-bg-effects{position:absolute;inset:0;pointer-events:none}
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
 
-.hero-content{position:relative;z-index:2;max-width:720px;width:100%;padding:0 1rem}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid var(--red);background:rgba(191,10,48,.06);font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards}
+.hero-content{position:relative;z-index:2;max-width:800px;width:100%;padding:0 1rem}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:1px solid var(--red);background:rgba(191,10,48,.06);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px;opacity:0;animation:fadeUp .7s ease .3s forwards}
 .hero-badge svg{width:14px;height:14px;fill:var(--red)}
 
-h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:900;line-height:1.12;margin-bottom:8px;color:var(--text-dark);opacity:0;animation:fadeUp .7s ease .5s forwards}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5.5vw,3.8rem);font-weight:900;line-height:1.1;margin-bottom:16px;color:var(--text-dark);opacity:0;animation:fadeUp .7s ease .5s forwards}
 h1 .red{color:var(--red)}
 h1 .gold{color:var(--navy)}
 
-.hero-sub{font-size:.85rem;color:var(--text-body);line-height:1.45;max-width:520px;margin:0 auto 12px;opacity:0;animation:fadeUp .7s ease .7s forwards}
-.hero-actions{display:flex;flex-direction:column;gap:12px;align-items:stretch;justify-content:center;opacity:0;animation:fadeUp .7s ease .9s forwards;max-width:340px;width:100%;margin:0 auto}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--text-body);line-height:1.55;max-width:600px;margin:0 auto 20px;opacity:0;animation:fadeUp .7s ease .7s forwards}
+.hero-actions{display:flex;flex-direction:column;gap:14px;align-items:stretch;justify-content:center;opacity:0;animation:fadeUp .7s ease .9s forwards;max-width:400px;width:100%;margin:0 auto}
 
-.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;border:none;transition:all .3s;position:relative;overflow:hidden}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 36px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;border:none;transition:all .3s;position:relative;overflow:hidden}
 .btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:left .5s}
 .btn-primary:hover::after{left:100%}
 .btn-primary:hover{background:#D4133C;transform:translateY(-2px);box-shadow:0 8px 30px var(--red-glow)}
-.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text-dark);text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(0,0,0,.2);transition:all .3s}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:18px 36px;background:transparent;color:var(--text-dark);text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(0,0,0,.2);transition:all .3s}
 .btn-ghost:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -366,9 +366,9 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-slogan{font-size:clamp(.35rem,1.1vw,.45rem);letter-spacing:1.5px;margin-top:2px}
   .nav-logo-tag{font-size:clamp(.3rem,0.9vw,.38rem);letter-spacing:1px}
   .nav-right{flex-shrink:0}
-  .hero{padding:100px max(16px, env(safe-area-inset-left)) 20px max(16px, env(safe-area-inset-right));min-height:100svh;gap:14px}
-  .hero-montage img{max-width:92vw;max-height:26vh;border-width:3px}
-  h1.hero-title{font-size:clamp(1.4rem,5.5vw,2rem)}
+  .hero{padding:110px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-right));min-height:100svh;gap:20px}
+  .hero-montage img{max-width:94vw;max-height:36vh;border-width:3px}
+  h1.hero-title{font-size:clamp(1.8rem,7vw,2.8rem)}
   footer{padding-bottom:max(24px, env(safe-area-inset-bottom))}
 
   section[id]{scroll-margin-top:100px}
@@ -409,9 +409,9 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-name{font-size:clamp(.75rem,2.8vw,1.1rem);letter-spacing:0}
   .nav-logo-slogan{font-size:clamp(.28rem,0.9vw,.37rem);letter-spacing:1px;margin-top:1px}
   .nav-logo-tag{font-size:clamp(.25rem,0.8vw,.32rem);letter-spacing:0.5px}
-  .hero{padding:90px 12px 20px;gap:12px}
-  .hero-montage img{max-height:22vh}
-  h1.hero-title{font-size:clamp(1.2rem,5vw,1.7rem)}
+  .hero{padding:95px 12px 24px;gap:16px}
+  .hero-montage img{max-height:28vh}
+  h1.hero-title{font-size:clamp(1.5rem,6vw,2rem)}
   .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section,.portfolio-section,.video-section{padding:60px 12px}
   .payment-section{padding:60px 12px}
 }
@@ -450,7 +450,7 @@ footer .foot-right span{color:var(--red)}
 
 /* ========== HERO MONTAGE (centered top) ========== */
 .hero-montage{position:relative;z-index:2;display:flex;justify-content:center;width:100%;opacity:0;animation:fadeUp .7s ease .3s forwards}
-.hero-montage img{max-width:88vw;max-height:30vh;height:auto;display:block;object-fit:contain;border:4px solid #fff;box-shadow:0 16px 48px rgba(0,0,0,.1)}
+.hero-montage img{max-width:88vw;max-height:45vh;height:auto;display:block;object-fit:contain;border:4px solid #fff;box-shadow:0 16px 48px rgba(0,0,0,.1)}
 </style>
 </head>
 <body>
