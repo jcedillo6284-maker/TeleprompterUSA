@@ -108,12 +108,12 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
 
 /* ========== HERO ========== */
-.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:140px 48px 60px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;gap:48px;padding:140px 48px 60px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
 .hero-bg-effects{position:absolute;inset:0;pointer-events:none}
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
 
-.hero-content{position:relative;z-index:2;max-width:720px}
+.hero-content{position:relative;z-index:2;flex:1 1 50%;max-width:720px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid var(--red);background:rgba(191,10,48,.06);font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards}
 .hero-badge svg{width:14px;height:14px;fill:var(--red)}
 
@@ -378,7 +378,8 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-slogan{font-size:clamp(.35rem,1.1vw,.45rem);letter-spacing:1.5px;margin-top:2px}
   .nav-logo-tag{font-size:clamp(.3rem,0.9vw,.38rem);letter-spacing:1px}
   .nav-right{flex-shrink:0}
-  .hero{padding:120px max(16px, env(safe-area-inset-left)) 40px max(16px, env(safe-area-inset-right));min-height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:100svh}
+  .hero{padding:120px max(16px, env(safe-area-inset-left)) 40px max(16px, env(safe-area-inset-right));min-height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:100svh;flex-direction:column;gap:32px}
+  .hero-montage{max-width:100%}
   footer{padding-bottom:max(24px, env(safe-area-inset-bottom))}
 
   section[id]{scroll-margin-top:100px}
@@ -467,17 +468,9 @@ footer .foot-right span{color:var(--red)}
   .css-stars{-webkit-transform:translateZ(0);transform:translateZ(0)}
 }
 
-/* ========== PHOTO MONTAGE SECTION ========== */
-.montage-section{position:relative;z-index:2;padding:80px 48px;background:var(--navy-deep);overflow:hidden;text-align:center}
-.montage-section .section-label{color:rgba(255,255,255,.6);justify-content:center}
-.montage-section .section-label::before{background:rgba(255,255,255,.3)}
-.montage-section .section-heading{color:#fff;margin:0 auto 40px;text-align:center}
-.montage-img-wrap{max-width:1200px;margin:0 auto;border:6px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
-.montage-img-wrap img{width:100%;height:auto;display:block;object-fit:cover}
-@media(max-width:600px){
-  .montage-section{padding:48px 16px}
-  .montage-img-wrap{border-width:3px}
-}
+/* ========== HERO MONTAGE (right column) ========== */
+.hero-montage{position:relative;z-index:2;flex:1 1 45%;max-width:540px;opacity:0;animation:fadeUp .7s ease .6s forwards}
+.hero-montage img{width:100%;height:auto;display:block;object-fit:cover;border:5px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.12)}
 </style>
 </head>
 <body>
@@ -586,6 +579,9 @@ footer .foot-right span{color:var(--red)}
       <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth',block:'start'})">View Our Work</button>
     </div>
   </div>
+  <div class="hero-montage">
+    <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="eager" decoding="async" width="1920" height="1080">
+  </div>
 </section>
 
 <!-- TICKER -->
@@ -594,19 +590,6 @@ footer .foot-right span{color:var(--red)}
 </div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
-
-<!-- PHOTO MONTAGE -->
-<section class="montage-section">
-  <div class="reveal">
-    <div class="section-label">The Full Picture</div>
-    <h2 class="section-heading">Our Work at a <span style="color:var(--red)">Glance</span></h2>
-  </div>
-  <div class="montage-img-wrap reveal">
-    <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="lazy" decoding="async" width="1920" height="1080">
-  </div>
-</section>
-
-<div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
 
 <!-- PORTFOLIO / OUR WORK -->
 <section class="portfolio-section" id="portfolio">
