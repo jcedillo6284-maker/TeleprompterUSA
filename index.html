@@ -466,6 +466,18 @@ footer .foot-right span{color:var(--red)}
 @supports(-webkit-touch-callout: none){
   .css-stars{-webkit-transform:translateZ(0);transform:translateZ(0)}
 }
+
+/* ========== PHOTO MONTAGE SECTION ========== */
+.montage-section{position:relative;z-index:2;padding:80px 48px;background:var(--navy-deep);overflow:hidden;text-align:center}
+.montage-section .section-label{color:rgba(255,255,255,.6);justify-content:center}
+.montage-section .section-label::before{background:rgba(255,255,255,.3)}
+.montage-section .section-heading{color:#fff;margin:0 auto 40px;text-align:center}
+.montage-img-wrap{max-width:1200px;margin:0 auto;border:6px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
+.montage-img-wrap img{width:100%;height:auto;display:block;object-fit:cover}
+@media(max-width:600px){
+  .montage-section{padding:48px 16px}
+  .montage-img-wrap{border-width:3px}
+}
 </style>
 </head>
 <body>
@@ -582,6 +594,19 @@ footer .foot-right span{color:var(--red)}
 </div>
 
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
+
+<!-- PHOTO MONTAGE -->
+<section class="montage-section">
+  <div class="reveal">
+    <div class="section-label">The Full Picture</div>
+    <h2 class="section-heading">Our Work at a <span style="color:var(--red)">Glance</span></h2>
+  </div>
+  <div class="montage-img-wrap reveal">
+    <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="lazy" decoding="async" width="1920" height="1080">
+  </div>
+</section>
+
+<div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
 
 <!-- PORTFOLIO / OUR WORK -->
 <section class="portfolio-section" id="portfolio">
@@ -755,6 +780,18 @@ footer .foot-right span{color:var(--red)}
       <h4>Interrotron</h4>
       <p>Enables direct eye-contact between talent and interviewer through the camera lens, creating natural and engaging on-screen conversations for documentaries, interviews, and corporate videos.</p>
     </div>
+    <div class="equip-item reveal">
+      <img class="eq-img" src="images/dual 19s.jpg" alt="Dual 19-inch teleprompter monitors by Teleprompter USA" loading="lazy" width="800" height="450">
+      <span class="eq-icon">&#128433;&#65039;</span>
+      <h4>Dual 19s</h4>
+      <p>Twin 19-inch high-brightness monitors deliver a seamless multi-screen reading experience, giving talent maximum visibility and confidence from any position on stage or set.</p>
+    </div>
+    <div class="equip-item reveal">
+      <img class="eq-img" src="images/TUSA-AAMC.jpg" alt="AAMC dual teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450">
+      <span class="eq-icon">&#127891;</span>
+      <h4>AAMC Dual Setup</h4>
+      <p>Professional dual-screen configuration deployed for the AAMC, providing presenters with synchronized, wide-angle script coverage across both monitors for seamless delivery in large conference environments.</p>
+    </div>
   </div>
 </section>
 
@@ -913,7 +950,8 @@ const portfolioImages = [
   'images/gma-national-tv.jpg',
   'images/ted-cruz-super-tuesday.jpg',
   'images/gma-outdoor.jpg',
-  'images/hillary-clinton-event.jpg'
+  'images/hillary-clinton-event.jpg',
+  'images/Teleprompter USA Biden Houston.jpg'
 ];
 
 
@@ -977,6 +1015,12 @@ const portfolioData = [
     title: "Hillary Clinton — Presidential Campaign Rally",
     desc: "Teleprompter USA provided presidential-style teleprompting services for a Hillary Clinton campaign rally, delivering flawless script display in a high-energy, crowd-filled environment. Our team managed real-time cues and rapid script adjustments under the pressure of a nationally covered political event — where precision and reliability are non-negotiable.",
     img: portfolioImages[9]
+  },
+  {
+    tag: "Presidential Visit",
+    title: "Presidential Visit — Biden in Houston",
+    desc: "Teleprompter USA provided full-service teleprompting for a presidential visit to Houston, supporting community engagement on a national stage. Our team deployed presidential-grade equipment and operators to ensure every word was delivered with precision during this historic and high-security event — reinforcing the power of clear communication at the highest level.",
+    img: portfolioImages[10]
   }
 ];
 
