@@ -108,12 +108,12 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
 
 /* ========== HERO ========== */
-.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;gap:48px;padding:140px 48px 60px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:36px;padding:140px 48px 60px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
 .hero-bg-effects{position:absolute;inset:0;pointer-events:none}
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
 
-.hero-content{position:relative;z-index:2;flex:1 1 50%;max-width:720px}
+.hero-content{position:relative;z-index:2;max-width:720px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid var(--red);background:rgba(191,10,48,.06);font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .3s forwards}
 .hero-badge svg{width:14px;height:14px;fill:var(--red)}
 
@@ -121,8 +121,8 @@ h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,
 h1 .red{color:var(--red)}
 h1 .gold{color:var(--navy)}
 
-.hero-sub{font-size:1.1rem;color:var(--text-body);line-height:1.75;max-width:520px;margin-bottom:40px;opacity:0;animation:fadeUp .7s ease .7s forwards}
-.hero-actions{display:flex;gap:16px;align-items:center;opacity:0;animation:fadeUp .7s ease .9s forwards;flex-wrap:wrap}
+.hero-sub{font-size:1.1rem;color:var(--text-body);line-height:1.75;max-width:580px;margin:0 auto 40px;opacity:0;animation:fadeUp .7s ease .7s forwards}
+.hero-actions{display:flex;gap:16px;align-items:center;justify-content:center;opacity:0;animation:fadeUp .7s ease .9s forwards;flex-wrap:wrap}
 
 .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;border:none;transition:all .3s;position:relative;overflow:hidden}
 .btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:left .5s}
@@ -378,8 +378,7 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-slogan{font-size:clamp(.35rem,1.1vw,.45rem);letter-spacing:1.5px;margin-top:2px}
   .nav-logo-tag{font-size:clamp(.3rem,0.9vw,.38rem);letter-spacing:1px}
   .nav-right{flex-shrink:0}
-  .hero{padding:120px max(16px, env(safe-area-inset-left)) 40px max(16px, env(safe-area-inset-right));min-height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:100svh;flex-direction:column;gap:32px}
-  .hero-montage{max-width:100%}
+  .hero{padding:120px max(16px, env(safe-area-inset-left)) 40px max(16px, env(safe-area-inset-right));min-height:calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:100svh;gap:24px}
   footer{padding-bottom:max(24px, env(safe-area-inset-bottom))}
 
   section[id]{scroll-margin-top:100px}
@@ -468,8 +467,8 @@ footer .foot-right span{color:var(--red)}
   .css-stars{-webkit-transform:translateZ(0);transform:translateZ(0)}
 }
 
-/* ========== HERO MONTAGE (right column) ========== */
-.hero-montage{position:relative;z-index:2;flex:1 1 45%;max-width:540px;opacity:0;animation:fadeUp .7s ease .6s forwards}
+/* ========== HERO MONTAGE (centered top) ========== */
+.hero-montage{position:relative;z-index:2;width:100%;max-width:900px;opacity:0;animation:fadeUp .7s ease .3s forwards}
 .hero-montage img{width:100%;height:auto;display:block;object-fit:cover;border:5px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.12)}
 </style>
 </head>
@@ -564,6 +563,9 @@ footer .foot-right span{color:var(--red)}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-effects"></div>
+  <div class="hero-montage">
+    <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="eager" decoding="async" width="1920" height="1080">
+  </div>
   <div class="hero-content">
     <h1 class="hero-title">
       <span class="red">Teleprompter</span> <span class="gold">USA</span><br>Your Words, Delivered Flawlessly.
@@ -578,9 +580,6 @@ footer .foot-right span{color:var(--red)}
       </a>
       <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth',block:'start'})">View Our Work</button>
     </div>
-  </div>
-  <div class="hero-montage">
-    <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="eager" decoding="async" width="1920" height="1080">
   </div>
 </section>
 
