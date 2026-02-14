@@ -337,7 +337,13 @@ h1 .gold{color:var(--navy)}
 .cta-box .section-label{justify-content:center}
 .cta-box .section-label::before{display:none}
 .cta-box h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:20px;color:var(--text-dark)}
-.cta-box .cta-desc{color:var(--text-body);line-height:1.7;margin-bottom:40px;font-size:1rem}
+.cta-box .cta-desc{color:var(--text-body);line-height:1.7;margin-bottom:32px;font-size:1rem}
+/* CTA montage — smaller echo of hero montage */
+.cta-montage{display:flex;justify-content:center;margin-bottom:32px}
+.cta-montage-wrap{position:relative;display:inline-block;line-height:0;padding:3px;background:#fff;border:1px solid #ddd;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.cta-montage-wrap img{display:block;max-width:min(480px,90vw);height:auto;object-fit:contain;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.cta-montage-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:14px;right:14px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:3;text-transform:uppercase;white-space:nowrap}
+.cta-montage-wrap .img-shield{position:absolute;inset:0;z-index:4;background:transparent}
 .cta-contact{display:flex;justify-content:center;gap:48px;margin-bottom:40px;flex-wrap:wrap}
 .cta-contact-item{text-align:center}
 .cta-contact-item .label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-body);margin-bottom:6px}
@@ -885,6 +891,13 @@ footer .foot-right span{color:var(--red)}
     <h2>Your Next Presentation<br>Starts With <span style="color:var(--red)">One Call</span></h2>
     <p class="cta-desc">Whether it's a streaming Zoom call, a general session, a conference, a commercial shoot, or a broadcast environment — in English or any language — our operators are standing by 24/7.</p>
 
+    <div class="cta-montage reveal">
+      <div class="cta-montage-wrap">
+        <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage" loading="lazy" decoding="async" width="1920" height="1080">
+        <div class="img-shield" aria-hidden="true"></div>
+      </div>
+    </div>
+
     <div class="cta-contact">
       <div class="cta-contact-item">
         <div class="label">Direct Line</div>
@@ -912,7 +925,7 @@ footer .foot-right span{color:var(--red)}
 <!-- BOTTOM BRAND BANNER -->
 <div class="stripe-divider"><span class="s-red"></span><span class="s-white"></span><span class="s-blue"></span></div>
 <div class="bottom-brand">
-  <div class="bottom-brand-name"><span class="bbr">Teleprompter</span> USA</div>
+  <div class="bottom-brand-name"><span class="bbr">Teleprompter</span> USA<sup style="font-size:.45em;vertical-align:super;margin-left:2px">&reg;</sup></div>
   <div class="bottom-brand-sub">Working for Over 26 Years</div>
 </div>
 <div class="stripe-divider"><span class="s-blue"></span><span class="s-white"></span><span class="s-red"></span></div>
