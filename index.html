@@ -108,7 +108,7 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
 
 /* ========== HERO ========== */
-.hero{position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(4px,.6vh,8px);padding:clamp(190px,22vh,220px) 2rem 10px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
+.hero{position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(4px,.6vh,8px);padding:clamp(160px,18vh,200px) 2rem 10px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
 .hero-bg-effects{position:absolute;inset:0;pointer-events:none}
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
@@ -354,7 +354,7 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-name{font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:1px}
   .nav-logo-slogan{font-size:clamp(.45rem,1.2vw,.58rem);letter-spacing:clamp(2px,0.4vw,4px);margin-top:3px}
   .nav-logo-tag{font-size:clamp(.38rem,1vw,.48rem);letter-spacing:clamp(1.5px,0.3vw,3px)}
-  .hero{height:auto;min-height:100svh;padding:170px 24px 30px}
+  .hero{height:auto;min-height:100svh;padding:140px 24px 30px}
   .value-grid{grid-template-columns:1fr}
   .stats-row{gap:36px;flex-wrap:wrap}
   .cta-contact{flex-direction:column;gap:20px}
@@ -472,11 +472,11 @@ footer .foot-right span{color:var(--red)}
 }
 
 /* ========== HERO MONTAGE (centered top) ========== */
-.hero-montage{position:relative;z-index:2;display:flex;justify-content:center;width:100%;opacity:0;animation:fadeUp .7s ease .3s forwards}
-.hero-montage img{max-width:92vw;max-height:clamp(200px,42vh,480px);height:auto;display:block;object-fit:contain;border:1px solid rgba(255,255,255,.8);box-shadow:0 4px 16px rgba(0,0,0,.08);-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.hero-montage{position:relative;z-index:2;display:flex;justify-content:center;width:100%;margin-top:40px;opacity:0;animation:fadeUp .7s ease .3s forwards}
+.hero-montage img{max-width:92vw;max-height:clamp(180px,39vh,460px);height:auto;display:block;border:none;box-shadow:0 4px 16px rgba(0,0,0,.08);-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
 /* Montage wrapper for watermark + image protection */
-.hero-montage-wrap{position:relative;display:inline-block}
-.hero-montage-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:8px;right:12px;font-family:'Bebas Neue',sans-serif;font-size:clamp(.55rem,.9vw,.8rem);letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 3px rgba(0,0,0,.4);pointer-events:none;z-index:5;text-transform:uppercase;white-space:nowrap}
+.hero-montage-wrap{position:relative;display:inline-block;line-height:0}
+.hero-montage-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:15px;right:15px;font-family:'Bebas Neue',sans-serif;font-size:clamp(.6rem,1vw,.85rem);letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:5;text-transform:uppercase;white-space:nowrap}
 .hero-montage-wrap .img-shield{position:absolute;inset:0;z-index:4;background:transparent}
 </style>
 </head>
