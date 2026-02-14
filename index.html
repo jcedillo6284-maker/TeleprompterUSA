@@ -227,6 +227,24 @@ h1 .gold{color:var(--navy)}
 .value-card:hover::before{transform:scaleX(1)}
 .value-card:hover{border-color:rgba(191,10,48,.15);background:#fff;transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.08)}
 .value-icon{font-size:2rem;margin-bottom:20px;display:block}
+/* Value card image with frame + watermark */
+.value-img-wrap{position:relative;overflow:hidden;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);line-height:0;padding:3px;background:#fff;border:1px solid #ddd}
+.value-img-wrap img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.value-img-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:10px;right:10px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:3;text-transform:uppercase;white-space:nowrap}
+/* Nationwide animated graphic */
+.value-map-graphic{position:relative;width:100%;aspect-ratio:16/9;margin-bottom:20px;background:linear-gradient(135deg,var(--navy-deep) 0%,#0a1628 100%);overflow:hidden;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.1);border:1px solid #ddd;box-sizing:border-box}
+.value-map-inner{position:relative;width:100%;height:100%;overflow:hidden}
+.value-map-inner svg{position:absolute;inset:0;width:100%;height:100%;opacity:.15}
+@keyframes radarPulse{0%{transform:scale(0);opacity:.7}100%{transform:scale(3);opacity:0}}
+.radar-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--red)}
+.radar-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1.5px solid var(--red);animation:radarPulse 2s ease-out infinite}
+.radar-dot:nth-child(2)::after{animation-delay:.4s}
+.radar-dot:nth-child(3)::after{animation-delay:.8s}
+.radar-dot:nth-child(4)::after{animation-delay:1.2s}
+.radar-dot:nth-child(5)::after{animation-delay:1.6s}
+.radar-dot:nth-child(6)::after{animation-delay:.6s}
+.radar-dot:nth-child(7)::after{animation-delay:1s}
+.value-map-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:.7rem;letter-spacing:3px;color:rgba(255,255,255,.5);text-transform:uppercase;white-space:nowrap}
 .value-card h3{font-size:1.15rem;font-weight:700;margin-bottom:14px;color:var(--text-dark)}
 .value-card p{color:var(--text-body);font-size:.9rem;line-height:1.7}
 
@@ -676,17 +694,33 @@ footer .foot-right span{color:var(--red)}
   </div>
   <div class="value-grid">
     <div class="value-card reveal">
-      <span class="value-icon">&#127919;</span>
+      <div class="value-img-wrap">
+        <img src="images/equiptment.jpg" alt="Teleprompter USA equipment fleet" loading="lazy" decoding="async">
+      </div>
       <h3>Our Own Equipment</h3>
       <p>No third-party rentals. We own every piece of gear — Robotic Presidentials, Concert/Stage prompters, Camera-mounted, Free-standing, JIB &amp; Steadicam units in all sizes and types.</p>
     </div>
     <div class="value-card reveal">
-      <span class="value-icon">&#127482;&#127480;</span>
+      <div class="value-img-wrap">
+        <img src="images/staff-waldo.jpg" alt="Teleprompter USA experienced staff operator" loading="lazy" decoding="async">
+      </div>
       <h3>Experienced Staff Operators</h3>
       <p>Our operators aren't freelancers — they're on-staff professionals standing by 24/7. From streaming Zoom calls to Super Bowl stages, they've seen it all.</p>
     </div>
     <div class="value-card reveal">
-      <span class="value-icon">&#9889;</span>
+      <div class="value-map-graphic">
+        <div class="value-map-inner">
+          <svg viewBox="0 0 960 600" fill="none"><path d="M833 124l-4-2-9 4-15-8-6 1-5-3-10 2-3-5-8 1-3-6-12 1-7-4h-7l-2-4-10-1-5-5-15 2-5-3h-12l-4-4-18 2-3-3h-11l-2-5-16-1-5 5-9-1-3-4-8 2-6-2-4 3-7-3-11 1-4-3-15 4-4-2-10 5-8-2-6 4-13-1-5-5-7 3-5-3-9 5-6-1-8 4-12-3-4 4h-10l-4-3-16 3-3 4h-12l-5-2-14 5-7-2-7 6-9 1-4 4-7-1-5 5-11-1-3 4-8-3-6 4-4-2-9 3-8-4-3 4-9-2-5 4-7-3-6 5-8 1-3-4-14 5-5-1-3 6-11 2-4-3-7 4-10-2-4 5-9 1-5 4-7 1-4 6-6 2-2 5-10 1-3 4-8 2-4 5-5 3-7-1-4 6-6 3-3 5 2 4-1 6-6 3 1 7-4 5-1 6-5 2 2 7-3 5 1 6-5 4 1 8 3 5-2 4 2 6 5 3 4 7 6 2 3 5 8 4 5 2 3 6 7 1 4 4 2 7 6-1 5 5 3 3 8 2 4 5 5-1 6 3 3 6 7-2 5 4 2 4 8-1 4 3 5 1 6 5 4-2 7 3 3 4 8 1z" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.12)" stroke-width="1"/></svg>
+          <span class="radar-dot" style="top:25%;left:78%"></span>
+          <span class="radar-dot" style="top:60%;left:18%"></span>
+          <span class="radar-dot" style="top:55%;left:52%"></span>
+          <span class="radar-dot" style="top:35%;left:42%"></span>
+          <span class="radar-dot" style="top:45%;left:68%"></span>
+          <span class="radar-dot" style="top:70%;left:55%"></span>
+          <span class="radar-dot" style="top:30%;left:58%"></span>
+        </div>
+        <span class="value-map-label">Coast to Coast &bull; 24/7</span>
+      </div>
       <h3>Nationwide. Instant.</h3>
       <p>San Antonio, LA, DC, Chicago, Nashville, Philly, Denver and beyond. One call gets you fully equipped, anywhere in the country, any time.</p>
     </div>
