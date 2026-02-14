@@ -188,7 +188,7 @@ h1 .gold{color:var(--navy)}
 .portfolio-card{position:relative;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.85);transition:all .4s ease;max-width:100%}
 .portfolio-card::after{content:'TeleprompterUSA2026';position:absolute;top:110px;left:50%;transform:translate(-50%,-50%) rotate(-20deg);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:rgba(0,0,0,.06);white-space:nowrap;pointer-events:none;z-index:2;text-transform:uppercase}
 .portfolio-card:hover{border-color:rgba(191,10,48,.2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.portfolio-img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.portfolio-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#fff;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
 .portfolio-card:hover .portfolio-img{transform:scale(1.05);filter:brightness(1)}
 .portfolio-body{padding:24px}
 .portfolio-tag{display:inline-block;padding:4px 10px;background:var(--red);font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
@@ -971,7 +971,8 @@ const portfolioImages = [
   'images/ted-cruz-super-tuesday.jpg',
   'images/gma-outdoor.jpg',
   'images/hillary-clinton-event.jpg',
-  'images/Teleprompter USA Biden Houston.jpg'
+  'images/Teleprompter USA Biden Houston.jpg',
+  'images/accuray.jpeg'
 ];
 
 
@@ -1041,6 +1042,12 @@ const portfolioData = [
     title: "Biden Presidential Campaign",
     desc: "Teleprompter USA provided full-service teleprompting for a presidential visit to Houston, supporting community engagement on a national stage. Our team deployed presidential-grade equipment and operators to ensure every word was delivered with precision during this historic and high-security event — reinforcing the power of clear communication at the highest level.",
     img: portfolioImages[10]
+  },
+  {
+    tag: "Corporate",
+    title: "Accuray Corporate Shoot",
+    desc: "Teleprompter USA provided professional teleprompting services for Accuray's corporate production, ensuring executives and speakers delivered polished, on-script presentations. Our team integrated seamlessly with the production crew to support a high-stakes corporate environment where clarity and precision were essential.",
+    img: portfolioImages[11]
   }
 ];
 
