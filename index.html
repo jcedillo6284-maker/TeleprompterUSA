@@ -108,7 +108,7 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
 
 /* ========== HERO ========== */
-.hero{position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(4px,.7vh,10px);padding:136px 2rem 10px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
+.hero{position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(4px,.7vh,10px);padding:clamp(140px,18vh,170px) 2rem 10px;overflow:hidden;background:linear-gradient(135deg,var(--offwhite) 0%,var(--cream) 50%,var(--offwhite) 100%)}
 .hero-bg-effects{position:absolute;inset:0;pointer-events:none}
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
@@ -473,10 +473,10 @@ footer .foot-right span{color:var(--red)}
 
 /* ========== HERO MONTAGE (centered top) ========== */
 .hero-montage{position:relative;z-index:2;display:flex;justify-content:center;width:100%;opacity:0;animation:fadeUp .7s ease .3s forwards}
-.hero-montage img{max-width:92vw;max-height:clamp(220px,48vh,560px);height:auto;display:block;object-fit:contain;border:2px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,.1);-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.hero-montage img{max-width:92vw;max-height:clamp(200px,45vh,520px);height:auto;display:block;object-fit:contain;border:2px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,.1);-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
 /* Montage wrapper for watermark + image protection */
 .hero-montage-wrap{position:relative;display:inline-block}
-.hero-montage-wrap::after{content:'Teleprompter USA';position:absolute;bottom:10px;right:14px;font-family:'Bebas Neue',sans-serif;font-size:clamp(.7rem,1.2vw,1rem);letter-spacing:3px;color:rgba(255,255,255,.35);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:5;text-transform:uppercase}
+.hero-montage-wrap::after{content:'TELEPROMPTER USA';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,2.8vw,2.2rem);letter-spacing:clamp(4px,1vw,10px);color:rgba(255,255,255,.25);text-shadow:0 1px 6px rgba(0,0,0,.25);pointer-events:none;z-index:5;text-transform:uppercase;white-space:nowrap}
 .hero-montage-wrap .img-shield{position:absolute;inset:0;z-index:4;background:transparent}
 </style>
 </head>
