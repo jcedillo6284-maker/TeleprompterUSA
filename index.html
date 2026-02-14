@@ -99,12 +99,12 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .nav-logo-slogan{font-family:'Inter',sans-serif;font-size:clamp(.5rem,.85vw + .3rem,.85rem);color:rgba(255,255,255,.7);font-weight:500;letter-spacing:clamp(2px,0.5vw,6px);margin-top:4px;line-height:1.3;text-transform:uppercase}
 .nav-logo-tag{font-family:'Inter',sans-serif;font-size:clamp(.4rem,.7vw + .25rem,.72rem);color:rgba(255,255,255,.4);font-weight:400;letter-spacing:clamp(1.5px,0.4vw,4.5px);line-height:1.3;text-transform:uppercase}
 .nav-right{display:flex;align-items:center;gap:32px}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative;padding:6px 2px}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width .3s}
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
-.nav-cta{padding:10px 22px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;transition:all .3s;border:none;border-radius:4px}
+.nav-cta{padding:12px 26px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;transition:all .3s;border:none;border-radius:4px}
 .nav-cta:hover{background:#D4133C;box-shadow:0 4px 20px var(--red-glow);transform:translateY(-1px)}
 
 /* ========== HERO ========== */
@@ -113,15 +113,15 @@ nav.scrolled{background:var(--navy-deep);-webkit-backdrop-filter:blur(16px);back
 .hero-bg-effects::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,10,48,.04) 0%,transparent 70%);top:10%;right:-10%}
 .hero-bg-effects::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,40,104,.03) 0%,transparent 70%);bottom:5%;left:-5%}
 
-.hero-content{position:relative;z-index:2;max-width:800px;width:100%;padding:0 1rem}
+.hero-content{position:relative;z-index:2;max-width:860px;width:100%;padding:0 1rem;margin:0 auto}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid var(--red);background:rgba(191,10,48,.06);font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;opacity:0;animation:fadeUp .7s ease .3s forwards}
 .hero-badge svg{width:14px;height:14px;fill:var(--red)}
 
-h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:12px;color:var(--text-dark);opacity:0;animation:fadeUp .7s ease .5s forwards}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:900;line-height:1.2;margin-bottom:16px;color:var(--text-dark);opacity:0;animation:fadeUp .7s ease .5s forwards}
 h1 .red{color:var(--red)}
 h1 .gold{color:var(--navy)}
 
-.hero-sub{font-size:clamp(.9rem,1.6vw,1.08rem);color:var(--text-body);line-height:1.5;max-width:600px;margin:0 auto 14px;opacity:0;animation:fadeUp .7s ease .7s forwards}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--text-body);line-height:1.6;max-width:650px;margin:0 auto 18px;opacity:0;animation:fadeUp .7s ease .7s forwards}
 .hero-actions{display:flex;gap:16px;align-items:center;justify-content:center;opacity:0;animation:fadeUp .7s ease .9s forwards;flex-wrap:wrap}
 
 .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;border:none;transition:all .3s;position:relative;overflow:hidden}
@@ -188,7 +188,7 @@ h1 .gold{color:var(--navy)}
 .portfolio-card{position:relative;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.85);transition:all .4s ease;max-width:100%}
 .portfolio-card::after{content:'TeleprompterUSA2026';position:absolute;top:110px;left:50%;transform:translate(-50%,-50%) rotate(-20deg);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:rgba(0,0,0,.06);white-space:nowrap;pointer-events:none;z-index:2;text-transform:uppercase}
 .portfolio-card:hover{border-color:rgba(191,10,48,.2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.portfolio-img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
+.portfolio-img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
 .portfolio-card:hover .portfolio-img{transform:scale(1.05);filter:brightness(1)}
 .portfolio-body{padding:24px}
 .portfolio-tag{display:inline-block;padding:4px 10px;background:var(--red);font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
@@ -381,8 +381,8 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-tag{font-size:clamp(.3rem,0.9vw,.38rem);letter-spacing:1px}
   .nav-right{flex-shrink:0}
   .hero{padding:110px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-right));min-height:100svh;gap:20px}
-  .hero-montage img{max-width:94vw;max-height:36vh;border-width:3px}
-  h1.hero-title{font-size:clamp(1.8rem,7vw,2.8rem);margin-bottom:8px}
+  .hero-montage img{max-width:96vw;max-height:40vh;border-width:3px}
+  h1.hero-title{font-size:clamp(2rem,7.5vw,3rem);margin-bottom:10px}
   .hero-sub{font-size:.85rem;margin-bottom:12px;line-height:1.45}
   footer{padding-bottom:max(24px, env(safe-area-inset-bottom))}
 
@@ -433,8 +433,8 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-slogan{font-size:clamp(.28rem,0.9vw,.37rem);letter-spacing:1px;margin-top:1px}
   .nav-logo-tag{font-size:clamp(.25rem,0.8vw,.32rem);letter-spacing:0.5px}
   .hero{padding:95px 12px 24px;gap:16px}
-  .hero-montage img{max-height:28vh}
-  h1.hero-title{font-size:clamp(1.5rem,6vw,2rem)}
+  .hero-montage img{max-height:32vh}
+  h1.hero-title{font-size:clamp(1.6rem,6.5vw,2.2rem)}
   .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section,.portfolio-section,.video-section{padding:60px 12px}
   .payment-section{padding:60px 12px}
 }
@@ -473,7 +473,11 @@ footer .foot-right span{color:var(--red)}
 
 /* ========== HERO MONTAGE (centered top) ========== */
 .hero-montage{position:relative;z-index:2;display:flex;justify-content:center;width:100%;opacity:0;animation:fadeUp .7s ease .3s forwards}
-.hero-montage img{max-width:70vw;max-height:38vh;height:auto;display:block;object-fit:contain;border:5px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.hero-montage img{max-width:82vw;max-height:46vh;height:auto;display:block;object-fit:contain;border:5px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.12);-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+/* Montage wrapper for watermark + image protection */
+.hero-montage-wrap{position:relative;display:inline-block}
+.hero-montage-wrap::after{content:'Teleprompter USA';position:absolute;bottom:18px;right:20px;font-family:'Bebas Neue',sans-serif;font-size:clamp(.7rem,1.2vw,1rem);letter-spacing:3px;color:rgba(255,255,255,.35);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:5;text-transform:uppercase}
+.hero-montage-wrap .img-shield{position:absolute;inset:0;z-index:4;background:transparent}
 </style>
 </head>
 <body>
@@ -568,7 +572,10 @@ footer .foot-right span{color:var(--red)}
 <section class="hero">
   <div class="hero-bg-effects"></div>
   <div class="hero-montage">
-    <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="eager" decoding="async" width="1920" height="1080">
+    <div class="hero-montage-wrap">
+      <img src="images/TUSA-MONTAGE-FOR-SPLASH-SCR.jpg" alt="Teleprompter USA photo montage showcasing our work across events, broadcasts, and productions" loading="eager" decoding="async" width="1920" height="1080">
+      <div class="img-shield" aria-hidden="true"></div>
+    </div>
   </div>
   <div class="hero-content">
     <h1 class="hero-title">
@@ -898,6 +905,18 @@ footer .foot-right span{color:var(--red)}
 
 
 <script>
+// ===== IMAGE PROTECTION =====
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.closest('.hero-montage') || e.target.closest('.portfolio-card')) {
+    e.preventDefault();
+  }
+});
+document.addEventListener('dragstart', function(e) {
+  if (e.target.tagName === 'IMG') {
+    e.preventDefault();
+  }
+});
+
 // ===== NAV SCROLL =====
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
