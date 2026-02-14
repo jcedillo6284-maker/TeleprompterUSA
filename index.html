@@ -296,7 +296,9 @@ h1 .gold{color:var(--navy)}
 .equip-item .eq-icon{font-size:1.6rem;margin-bottom:12px;display:block}
 .equip-item h4{font-size:.9rem;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
 .equip-item p{font-size:.8rem;color:var(--text-body);line-height:1.5}
-.equip-item .eq-img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;border-radius:0;margin-bottom:16px;display:block;border:5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
+.eq-img-wrap{position:relative;overflow:hidden;margin-bottom:16px}
+.eq-img-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:14px;right:14px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:3;text-transform:uppercase;white-space:nowrap}
+.equip-item .eq-img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;border-radius:0;margin-bottom:0;display:block;border:5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box}
 
 
 /* ========== CONTACT FORM ========== */
@@ -742,55 +744,55 @@ footer .foot-right span{color:var(--red)}
   </div>
   <div class="equip-grid">
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/presidential-teleprompter.jpg" alt="Presidential teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/presidential-teleprompter.jpg" alt="Presidential teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450"></div>
       <span class="eq-icon">&#127963;&#65039;</span>
       <h4>Presidential Prompters</h4>
       <p>Robotic &amp; basic presidential teleprompters for keynotes and speeches.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/concert-stage.jpg" alt="Concert stage teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="605">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/concert-stage.jpg" alt="Concert stage teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="605"></div>
       <span class="eq-icon">&#127908;</span>
       <h4>Concert / Stage</h4>
       <p>Large-format stage prompters for live events, concerts, and award shows.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/camera-mounted.jpg" alt="Camera-mounted teleprompter by Teleprompter USA" loading="lazy" width="800" height="450">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/camera-mounted.jpg" alt="Camera-mounted teleprompter by Teleprompter USA" loading="lazy" width="800" height="450"></div>
       <span class="eq-icon">&#127916;</span>
       <h4>Camera-Mounted</h4>
       <p>Prompters that mount directly to broadcast and studio cameras.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/free-standing-studio.jpg" alt="Free-standing studio teleprompter by Teleprompter USA" loading="lazy" width="800" height="450">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/free-standing-studio.jpg" alt="Free-standing studio teleprompter by Teleprompter USA" loading="lazy" width="800" height="450"></div>
       <span class="eq-icon">&#128421;&#65039;</span>
       <h4>Free-Standing &amp; Studio</h4>
       <p>Versatile setups for commercials, streaming, and production environments.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/jib-steadicam.jpg" alt="JIB and Steadicam teleprompter rig by Teleprompter USA" loading="lazy" width="800" height="1012">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/jib-steadicam.jpg" alt="JIB and Steadicam teleprompter rig by Teleprompter USA" loading="lazy" width="800" height="1012"></div>
       <span class="eq-icon">&#127909;</span>
       <h4>JIB &amp; Steadicam</h4>
       <p>Specialty prompters for dynamic camera setups and mobile shooting.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/virtual-streaming.jpg" alt="Virtual streaming teleprompter by Teleprompter USA" loading="lazy" width="800" height="450">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/virtual-streaming.jpg" alt="Virtual streaming teleprompter by Teleprompter USA" loading="lazy" width="800" height="450"></div>
       <span class="eq-icon">&#127760;</span>
       <h4>Virtual / Streaming</h4>
       <p>Remote solutions for Zoom, webinars, and virtual events in any language.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/interrotron-teleprompter.jpg" alt="Interrotron teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/interrotron-teleprompter.jpg" alt="Interrotron teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450"></div>
       <span class="eq-icon">&#128065;&#65039;</span>
       <h4>Interrotron</h4>
       <p>Enables direct eye-contact between talent and interviewer through the camera lens, creating natural and engaging on-screen conversations for documentaries, interviews, and corporate videos.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/dual 19s.jpg" alt="Dual 19-inch teleprompter monitors by Teleprompter USA" loading="lazy" width="800" height="450">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/dual 19s.jpg" alt="Dual 19-inch teleprompter monitors by Teleprompter USA" loading="lazy" width="800" height="450"></div>
       <span class="eq-icon">&#128433;&#65039;</span>
       <h4>Dual 19s</h4>
       <p>Twin 19-inch high-brightness monitors deliver a seamless multi-screen reading experience, giving talent maximum visibility and confidence from any position on stage or set.</p>
     </div>
     <div class="equip-item reveal">
-      <img class="eq-img" src="images/TUSA-AAMC.jpg" alt="AAMC dual teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450" style="object-fit:contain;clip-path:inset(2% 4% 4% 4%)">
+      <div class="eq-img-wrap"><img class="eq-img" src="images/TUSA-AAMC.jpg" alt="AAMC dual teleprompter setup by Teleprompter USA" loading="lazy" width="800" height="450" style="object-fit:contain;clip-path:inset(2% 4% 4% 4%)"></div>
       <span class="eq-icon">&#127891;</span>
       <h4>Professional Presidentials In Any Size</h4>
       <p>Professional dual-screen configuration deployed for the AAMC, providing presenters with synchronized, wide-angle script coverage across both monitors for seamless delivery in large conference environments.</p>
