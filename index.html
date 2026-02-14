@@ -186,7 +186,8 @@ h1 .gold{color:var(--navy)}
 
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto}
 .portfolio-card{position:relative;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.85);transition:all .4s ease;max-width:100%}
-.portfolio-card::after{content:'TeleprompterUSA2026';position:absolute;top:110px;left:50%;transform:translate(-50%,-50%) rotate(-20deg);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:4px;color:rgba(0,0,0,.06);white-space:nowrap;pointer-events:none;z-index:2;text-transform:uppercase}
+.portfolio-img-wrap{position:relative;overflow:hidden}
+.portfolio-img-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:16px;right:16px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:3;text-transform:uppercase;white-space:nowrap}
 .portfolio-card:hover{border-color:rgba(191,10,48,.2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
 .portfolio-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#fff;display:block;transition:transform .6s ease,filter .4s ease;border:6px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
 .portfolio-card:hover .portfolio-img{transform:scale(1.05);filter:brightness(1)}
@@ -1052,9 +1053,11 @@ const portfolioData = [
 ];
 
 const portfolioGrid = document.getElementById('portfolioGrid');
-portfolioGrid.innerHTML = portfolioData.map(p => 
+portfolioGrid.innerHTML = portfolioData.map(p =>
   '<div class="portfolio-card reveal">' +
-    '<img class="portfolio-img" src="' + p.img + '" alt="' + p.title + '" loading="lazy" decoding="async">' +
+    '<div class="portfolio-img-wrap">' +
+      '<img class="portfolio-img" src="' + p.img + '" alt="' + p.title + '" loading="lazy" decoding="async">' +
+    '</div>' +
     '<div class="portfolio-body">' +
       '<span class="portfolio-tag">' + p.tag + '</span>' +
       '<h3>' + p.title + '</h3>' +
