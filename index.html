@@ -231,15 +231,6 @@ h1 .gold{color:var(--navy)}
 .value-img-wrap{position:relative;overflow:hidden;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);line-height:0;padding:3px;background:#fff;border:1px solid #ddd}
 .value-img-wrap img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 .value-img-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:10px;right:10px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:3;text-transform:uppercase;white-space:nowrap}
-/* Nationwide map — minimal */
-.nw-map{width:100%;aspect-ratio:16/9;background:var(--navy-deep);display:block}
-.nw-map svg{display:block;width:100%;height:100%}
-.usa-shape{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.2;stroke-linejoin:round}
-.svc-dot{fill:rgba(255,255,255,.7)}
-@keyframes hqPing{0%{transform:scale(1);opacity:.3}100%{transform:scale(10);opacity:0}}
-.hq-ping{fill:none;stroke:rgba(255,255,255,.25);stroke-width:.8;transform-box:fill-box;transform-origin:center;animation:hqPing 3s ease-out infinite}
-.hq-ping2{fill:none;stroke:rgba(255,255,255,.15);stroke-width:.8;transform-box:fill-box;transform-origin:center;animation:hqPing 3s ease-out 1s infinite}
-.map-footer{font-family:'Inter',sans-serif;font-size:7px;letter-spacing:3px;fill:rgba(255,255,255,.2);text-anchor:middle}
 .value-card h3{font-size:1.15rem;font-weight:700;margin-bottom:14px;color:var(--text-dark)}
 .value-card p{color:var(--text-body);font-size:.9rem;line-height:1.7}
 
@@ -704,22 +695,7 @@ footer .foot-right span{color:var(--red)}
     </div>
     <div class="value-card reveal">
       <div class="value-img-wrap">
-        <div class="nw-map">
-          <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
-            <!-- USA outline -->
-            <path class="usa-shape" d="M 64,80 L 430,80 L 462,84 L 495,102 L 522,86 L 542,102 L 548,135 L 542,165 L 535,180 L 562,180 L 570,145 L 578,112 L 602,120 L 638,114 L 668,104 L 708,90 L 742,80 L 845,92 L 835,115 L 818,125 L 822,134 L 812,142 L 795,160 L 785,175 L 775,192 L 765,208 L 770,222 L 760,235 L 778,248 L 770,265 L 758,282 L 750,305 L 742,325 L 738,345 L 742,375 L 750,408 L 755,442 L 748,455 L 735,445 L 725,420 L 715,395 L 708,372 L 695,360 L 660,350 L 628,348 L 598,352 L 572,358 L 555,365 L 548,375 L 540,360 L 520,358 L 495,365 L 470,378 L 448,400 L 430,425 L 410,450 L 390,455 L 360,435 L 320,405 L 282,398 L 220,390 L 160,372 L 142,355 L 125,332 L 102,298 L 78,260 L 60,222 L 50,185 L 48,152 L 52,122 L 62,100 Z"/>
-            <!-- Service dots -->
-            <circle class="svc-dot" cx="132" cy="340" r="3"/>
-            <circle class="svc-dot" cx="548" cy="195" r="3"/>
-            <circle class="svc-dot" cx="762" cy="215" r="3"/>
-            <!-- San Antonio HQ with ping -->
-            <circle class="hq-ping" cx="422" cy="400" r="3"/>
-            <circle class="hq-ping2" cx="422" cy="400" r="3"/>
-            <circle class="svc-dot" cx="422" cy="400" r="4"/>
-            <!-- Footer -->
-            <text class="map-footer" x="480" y="575">COAST TO COAST &#x2022; 24/7</text>
-          </svg>
-        </div>
+        <img src="images/black america.png" alt="Teleprompter USA nationwide coverage across America" loading="lazy" decoding="async">
       </div>
       <h3>Nationwide. Instant.</h3>
       <p>San Antonio, LA, DC, Chicago, Nashville, Philly, Denver and beyond. One call gets you fully equipped, anywhere in the country, any time.</p>
