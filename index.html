@@ -233,13 +233,16 @@ h1 .gold{color:var(--navy)}
 .value-img-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:10px;right:10px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:3;text-transform:uppercase;white-space:nowrap}
 /* Nationwide animated graphic */
 .value-map-graphic{position:relative;width:100%;aspect-ratio:16/9;margin-bottom:20px;background:linear-gradient(135deg,var(--navy-deep) 0%,#0a1628 100%);overflow:hidden;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.1);border:1px solid #ddd;box-sizing:border-box}
-.value-map-inner{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-@keyframes sonarPulse{0%{width:10px;height:10px;opacity:.5}100%{width:100px;height:100px;opacity:0}}
-.sonar-ring{position:absolute;border-radius:50%;border:1.5px solid var(--red);animation:sonarPulse 3s ease-out infinite}
+.value-map-inner{position:relative;width:100%;height:100%;overflow:hidden}
+.value-map-inner svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:88%;height:auto}
+.usa-outline{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.15);stroke-width:1.5}
+.texas-outline{fill:rgba(191,10,48,.25);stroke:rgba(191,10,48,.5);stroke-width:1.5}
+@keyframes sonarPulse{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+.sonar-wrap{position:absolute;top:62%;left:38%;width:0;height:0;z-index:3}
+.sonar-ring{position:absolute;top:0;left:0;width:120px;height:120px;border-radius:50%;border:2px solid var(--red);transform:translate(-50%,-50%) scale(0);animation:sonarPulse 3s ease-out infinite}
 .sonar-ring:nth-child(2){animation-delay:1s}
 .sonar-ring:nth-child(3){animation-delay:2s}
-.map-pin{position:relative;z-index:2;font-size:1.8rem;line-height:1;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
-.map-city-label{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(.4rem,.7vw,.55rem);letter-spacing:2px;color:rgba(255,255,255,.35);text-transform:uppercase;white-space:nowrap}
+.sonar-dot{position:absolute;top:0;left:0;width:8px;height:8px;background:var(--red);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 8px rgba(191,10,48,.6);z-index:4}
 .value-map-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:.7rem;letter-spacing:3px;color:rgba(255,255,255,.5);text-transform:uppercase;white-space:nowrap}
 .value-card h3{font-size:1.15rem;font-weight:700;margin-bottom:14px;color:var(--text-dark)}
 .value-card p{color:var(--text-body);font-size:.9rem;line-height:1.7}
@@ -706,18 +709,19 @@ footer .foot-right span{color:var(--red)}
     <div class="value-card reveal">
       <div class="value-map-graphic">
         <div class="value-map-inner">
-          <span class="sonar-ring"></span>
-          <span class="sonar-ring"></span>
-          <span class="sonar-ring"></span>
-          <span class="map-pin">📍</span>
-          <span class="map-city-label" style="top:18%;left:10%">Los Angeles</span>
-          <span class="map-city-label" style="top:72%;left:15%">San Antonio</span>
-          <span class="map-city-label" style="top:22%;left:70%">New York</span>
-          <span class="map-city-label" style="top:28%;left:48%">Chicago</span>
-          <span class="map-city-label" style="top:55%;left:55%">Nashville</span>
-          <span class="map-city-label" style="top:40%;left:72%">DC</span>
-          <span class="map-city-label" style="top:15%;left:38%">Denver</span>
-          <span class="map-city-label" style="top:38%;left:62%">Philly</span>
+          <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Continental US outline -->
+            <path class="usa-outline" d="M170,120 L120,125 L100,135 L80,180 L65,240 L55,310 L70,360 L95,400 L125,420 L160,430 L200,435 L250,440 L290,445 L310,480 L330,510 L360,530 L400,535 L440,520 L460,490 L490,485 L530,490 L555,488 L580,485 L610,480 L640,478 L670,475 L690,478 L705,490 L720,510 L740,550 L748,540 L745,510 L735,480 L725,450 L728,420 L740,390 L760,365 L780,345 L800,320 L810,295 L805,270 L810,250 L800,235 L810,210 L820,185 L830,160 L845,130 L850,105 L840,90 L810,88 L760,90 L700,92 L650,95 L620,98 L600,120 L585,140 L570,120 L555,105 L530,100 L500,108 L480,100 L440,92 L380,90 L300,95 L230,105 Z"/>
+            <!-- Texas highlight -->
+            <path class="texas-outline" d="M310,480 L300,445 L290,445 L285,430 L340,425 L380,420 L400,418 L405,430 L410,460 L420,490 L440,520 L430,530 L400,535 L360,530 L330,510 Z"/>
+          </svg>
+          <!-- Sonar pulse on Texas -->
+          <div class="sonar-wrap">
+            <span class="sonar-ring"></span>
+            <span class="sonar-ring"></span>
+            <span class="sonar-ring"></span>
+            <span class="sonar-dot"></span>
+          </div>
         </div>
         <span class="value-map-label">Coast to Coast &bull; 24/7</span>
       </div>
