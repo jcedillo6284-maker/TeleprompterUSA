@@ -381,7 +381,9 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-tag{font-size:clamp(.3rem,0.9vw,.38rem);letter-spacing:1px}
   .nav-right{flex-shrink:0}
   .hero{height:auto;min-height:100svh;padding:110px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-right));gap:18px}
-  .hero-montage img{max-width:98vw;max-height:42vh;border-width:2px}
+  .hero-montage img{max-width:94vw;max-height:38vh}
+  .hero-montage-wrap{padding:3px}
+  .hero-montage{margin-top:24px}
   h1.hero-title{font-size:clamp(1.8rem,7vw,2.8rem);margin-bottom:8px}
   .hero-sub{font-size:.85rem;margin-bottom:10px;line-height:1.45}
   footer{padding-bottom:max(24px, env(safe-area-inset-bottom))}
@@ -433,7 +435,9 @@ footer .foot-right span{color:var(--red)}
   .nav-logo-slogan{font-size:clamp(.28rem,0.9vw,.37rem);letter-spacing:1px;margin-top:1px}
   .nav-logo-tag{font-size:clamp(.25rem,0.8vw,.32rem);letter-spacing:0.5px}
   .hero{height:auto;min-height:100svh;padding:95px 12px 20px;gap:14px}
-  .hero-montage img{max-height:34vh;border-width:2px}
+  .hero-montage img{max-height:30vh}
+  .hero-montage-wrap{padding:2px}
+  .hero-montage{margin-top:16px}
   h1.hero-title{font-size:clamp(1.5rem,6vw,2rem)}
   .value-section,.proof-section,.equip-section,.cta-section,.staff-section,.payment-section,.contact-form-section,.portfolio-section,.video-section{padding:60px 12px}
   .payment-section{padding:60px 12px}
@@ -473,10 +477,13 @@ footer .foot-right span{color:var(--red)}
 
 /* ========== HERO MONTAGE (centered top) ========== */
 .hero-montage{position:relative;z-index:2;display:flex;justify-content:center;width:100%;margin-top:40px;opacity:0;animation:fadeUp .7s ease .3s forwards}
-.hero-montage img{max-width:92vw;max-height:clamp(180px,39vh,460px);height:auto;display:block;border:none;box-shadow:0 4px 16px rgba(0,0,0,.08);-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
-/* Montage wrapper for watermark + image protection */
-.hero-montage-wrap{position:relative;display:inline-block;line-height:0}
-.hero-montage-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:15px;right:15px;font-family:'Bebas Neue',sans-serif;font-size:clamp(.6rem,1vw,.85rem);letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:5;text-transform:uppercase;white-space:nowrap}
+/* Frame wrapper — acts as gallery picture frame */
+.hero-montage-wrap{position:relative;display:inline-block;line-height:0;padding:4px;background:#fff;border:1px solid #ddd;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+/* Image — object-fit:contain prevents any distortion */
+.hero-montage img{display:block;max-width:88vw;max-height:clamp(170px,38vh,440px);width:auto;height:auto;object-fit:contain;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+/* Watermark — inside photo area, bottom-right corner */
+.hero-montage-wrap::after{content:'TELEPROMPTER USA';position:absolute;bottom:19px;right:19px;font-family:'Bebas Neue',sans-serif;font-size:clamp(.6rem,1vw,.85rem);letter-spacing:2px;color:rgba(255,255,255,.3);text-shadow:0 1px 4px rgba(0,0,0,.5);pointer-events:none;z-index:5;text-transform:uppercase;white-space:nowrap}
+/* Transparent shield blocks save-as */
 .hero-montage-wrap .img-shield{position:absolute;inset:0;z-index:4;background:transparent}
 </style>
 </head>
